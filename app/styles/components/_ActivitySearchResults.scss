@@ -1,0 +1,70 @@
+#searchPanel{
+   width:50%;
+   display: inline-block;
+
+}
+
+.glyphicon-heart{
+    color:red;
+    cursor:pointer;
+}
+.glyphicon-heart-empty:hover{
+    color:red;
+    cursor: pointer;
+}
+.resultboxes{
+  margin-bottom: 20px;
+  width:440px;
+  padding: 10px;
+  border-color:#e2e2e2;
+  border-style:solid;
+  border-width:1px;
+  border-radius:4px;
+  background-color: white;
+}
+
+.ResultItem{
+  border-color:transparent;
+  display:inline-block;
+  width:310px;
+  margin-right:0px;
+  margin-top:10px;
+}
+
+.resultItemHeading{
+  display:inline-block;
+  font-size:12px;
+  width:310px;
+}
+
+h5{
+  font-weight:bold;
+  display:inline-block;
+}
+#resultReviews{
+  color:gray;
+  font-size:10px;
+  font-style:italic;
+}
+.resultLocationImage{
+  border-radius:5px;
+ float:right;
+ margin-top:12px;
+}
+.emptySearch{
+  margin-top:80px;
+  text-align:center;
+  color:white;
+  font-weight:bold;
+  opacity:.8;
+}
+.searchErr{
+  color:white;
+  font-weight:bold;
+  opacity:.8;
+}
+.addFavoriteHint{
+  margin-top:20px;
+  color:white;
+  text-align:center;
+}
