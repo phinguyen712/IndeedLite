@@ -1,10 +1,11 @@
+
 import * as redux from 'redux';
-
-
-import {} from 'reducers'
+import {productsReducer} from 'reducers'
 
 export var configure = (initialState = {}) => {
   var reducer = redux.combineReducers({
+
+            products:productsReducer
 
   });
 

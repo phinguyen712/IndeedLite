@@ -4,18 +4,20 @@ var {Route, Router, IndexRoute, hashHistory} = require('react-router');
 var {Provider} = require('react-redux');
 var store = require('configureStore').configure();
 import Main from 'Main';
+var actions = require('actions');
 // Load foundation
 
 
 // App css
-//Preload Api Data and update redux-->state
+require('style!css!sass!applicationStyles');
+//Get JSON data and pre load products onto state with Redux
 var preLoadApiData = (nextState,replace,callback)=>{
     $.ajax({
      type: "GET",
      url: "https://sneakpeeq-sites.s3.amazonaws.com/interviews/ce/feeds/store.js",
      dataType:"json",
      success:function(returnData){
-       console.log(returnData)
+       store.dispatch(actions.updateProducts(returnData.products));
        callback();
      }
   })
