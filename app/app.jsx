@@ -3,8 +3,8 @@ var ReactDOM = require('react-dom');
 var {Route, Router, IndexRoute, hashHistory} = require('react-router');
 var {Provider} = require('react-redux');
 var store = require('configureStore').configure();
-import Main from 'Main';
 var actions = require('actions');
+import Main from 'Main';
 // Load foundation
 
 
@@ -23,6 +23,8 @@ var preLoadApiData = (nextState,replace,callback)=>{
   })
 }
 
+
+
 ReactDOM.render(
   <Provider store={store}>
     <Router history={hashHistory}>
@@ -32,3 +34,5 @@ ReactDOM.render(
   ,
   document.getElementById('app')
 );
+
+export default preLoadApiData;

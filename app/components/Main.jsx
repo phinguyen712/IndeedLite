@@ -1,15 +1,17 @@
 var React = require('react');
 var {connect} = require('react-redux');
+import ItemList from 'ItemList'
 
-
-var Main = React.createClass({
+export var Main = React.createClass({
   render:function(){
     return (
-        <h1>this is the main page</h1>
+        <div>
+          <ItemList/>
+        </div>
       );
     }
 });
 
 
 
-export default connect()(Main)
+export default connect()(Main);

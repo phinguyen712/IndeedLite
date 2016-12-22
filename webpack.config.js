@@ -27,6 +27,8 @@ module.exports = {
       configureStore: 'app/store/configureStore.jsx',
       actions: 'app/actions/actions.jsx',
       reducers: 'app/reducers/reducers.jsx',
+      ItemList:'app/components/ItemList.jsx',
+      Item:'app/components/Item.jsx'
     },
     extensions: ['', '.js', '.jsx']
   },
