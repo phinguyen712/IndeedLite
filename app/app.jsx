@@ -17,7 +17,7 @@ var preLoadApiData = (nextState,replace,callback)=>{
      url: "https://sneakpeeq-sites.s3.amazonaws.com/interviews/ce/feeds/store.js",
      dataType:"json",
      success:function(returnData){
-       store.dispatch(actions.updateProducts(returnData.products));
+       store.dispatch(actions.updateProducts(returnData.products));;
        callback();
      }
   })

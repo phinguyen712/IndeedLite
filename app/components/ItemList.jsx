@@ -4,22 +4,22 @@ import Item from 'Item'
 
 export var ItemList = React.createClass({
 
-//generate a cimponent of each item in the products state
-  items(){
+//generate a component of each item in the products state
+  render:function(){
     var {products} = this.props;
-    return(
-      products.map(function(product,index){
-          return(
-            <Item key={product.id} index={index} product={product}/>
-          );
-      })
-    );
-  },
+    var items=()=>{
+      return(
+        products.map(function(product,index){
+            return(
+              <Item key={product.id} index={index} product={product}/>
+            );
+        })
+      );
+    };
 
-  render(){
     return (
       <div>
-          {this.items()}
+          {items()}
       </div>
       );
   }

@@ -28,7 +28,11 @@ module.exports = {
       actions: 'app/actions/actions.jsx',
       reducers: 'app/reducers/reducers.jsx',
       ItemList:'app/components/ItemList.jsx',
-      Item:'app/components/Item.jsx'
+      Item:'app/components/Item.jsx',
+      FilterButton:'app/compomnents/FilterButton.jsx',
+      SortButton:'app/components/SortButton.jsx',
+      SortPanel:'app/components/SortPanel.jsx',
+      OrderButton:'app/components/OrderButton.jsx'
     },
     extensions: ['', '.js', '.jsx']
   },

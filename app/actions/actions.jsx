@@ -5,3 +5,10 @@ export var updateProducts = (products) => {
     products
   };
 };
+
+export var changeOrder = (order) => {
+  return {
+    type: 'CHANGE_ORDER',
+    order
+  };
+};

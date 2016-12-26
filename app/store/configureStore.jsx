@@ -1,11 +1,12 @@
 
 import * as redux from 'redux';
-import {productsReducer} from 'reducers'
+import {productsReducer,orderReducer} from 'reducers';
+
 
 export var configure = (initialState = {}) => {
   var reducer = redux.combineReducers({
-
-            products:productsReducer
+            products:productsReducer,
+            order:orderReducer
 
   });
 

@@ -7,8 +7,10 @@ export var Item = React.createClass({
   render(){
     var {product} = this.props;
     return (
-      <div>
-        <h1>{product.name}</h1>
+      <div className="item">
+        <img className="itemImg" src={product.mainImage.ref} />
+        <h4>{product.name}</h4>
+        <h5>{product.defaultPriceInCents}</h5>
       </div>
     );
   }
