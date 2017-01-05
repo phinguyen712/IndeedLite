@@ -2,11 +2,10 @@ var React = require('react');
 var {connect} = require('react-redux');
 
 
-export var Item = React.createClass({
+export var DisCount= React.createClass({
 //generate a cimponent of each item in the products state
   render(){
     var {product} = this.props;
-
     return (
       <div className="item">
         <img className="itemImg" src={product.mainImage.ref} />
@@ -19,4 +18,4 @@ export var Item = React.createClass({
 
 
 //setting products as state.
-export default connect()(Item);
+export default connect()(DisCount);

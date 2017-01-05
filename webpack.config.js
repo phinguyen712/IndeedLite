@@ -29,10 +29,11 @@ module.exports = {
       reducers: 'app/reducers/reducers.jsx',
       ItemList:'app/components/ItemList.jsx',
       Item:'app/components/Item.jsx',
-      FilterButton:'app/compomnents/FilterButton.jsx',
-      SortButton:'app/components/SortButton.jsx',
+      DisCount:'app/compomnents/DisCount.jsx',
+      SortByButton:'app/components/SortByButton.jsx',
       SortPanel:'app/components/SortPanel.jsx',
-      OrderButton:'app/components/OrderButton.jsx'
+      OrderButton:'app/components/OrderButton.jsx',
+      Input:'app/tests/Input.jsx',
     },
     extensions: ['', '.js', '.jsx']
   },

@@ -25,14 +25,14 @@ var toggleDropDown=()=>{
     document.getElementById("myDropdown").classList.toggle("show");
 };
 
-//Component for sortButton
-export var SortButton = React.createClass({
+//Component for Sory By Button
+export var SortByButton = React.createClass({
   // method for sorting name,date,price by descending/ascending
   sortCategory(category){
     var {order,products,dispatch} = this.props;
     //create copy of products so we don't mutate state
     products = products.slice()
-    //sort products
+    //sort products by order reducer (ascending/descending)
     products = products.sort((a,b)=>{
                   a = a[category];
 
@@ -55,9 +55,9 @@ export var SortButton = React.createClass({
       <div className="dropdown">
         <button onClick={toggleDropDown} className="dropbtn">Sort By</button>
         <div id="myDropdown" className="dropdown-content">
-          <a onClick={()=>this.sortCategory('name')}>Name</a>
-          <a onClick={()=>this.sortCategory('defaultPriceInCents')}>Price</a>
-          <a onClick={()=>this.sortCategory('createdAt')}>Date</a>
+          <a className="Name" onClick={()=>this.sortCategory('name')}>Name</a>
+          <a className="Price" onClick={()=>this.sortCategory('defaultPriceInCents')}>Price</a>
+          <a className="Date" onClick={()=>this.sortCategory('createdAt')}>Date</a>
         </div>
         <OrderButton/>
       </div>
@@ -75,4 +75,4 @@ export default connect(
       order:state.order
     }
   }
-)(SortButton)
+)(SortByButton)

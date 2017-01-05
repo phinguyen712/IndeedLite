@@ -1,12 +1,12 @@
 var React = require('react');
 var {connect} = require('react-redux');
 var actions = require('actions');
-import ItemList from 'ItemList'
-import OrderButton from 'OrderButton'
+import ItemList from 'ItemList';
 
-// Close the dropdown menu if the user clicks outside of it
-export var SortButton = React.createClass({
-//sort name,date,price by order
+
+//component for button that sorts name,date,price by ascending/descending
+export var OrderButton = React.createClass({
+  //changes icon on button based on current state(ascending/descending)
   orderIcon(){
     var {order} =this.props;
 
@@ -16,6 +16,7 @@ export var SortButton = React.createClass({
       return 'fa fa-sort-amount-asc'
     }
   },
+  //changes changeOrder reducer when button is clicked
   sortOrder(){
     var {order, dispatch} = this.props;
 
@@ -41,4 +42,4 @@ export default connect(
       order:state.order
     }
   }
-)(SortButton)
+)(OrderButton)

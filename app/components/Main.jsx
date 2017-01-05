@@ -1,13 +1,13 @@
 var React = require('react');
 var {connect} = require('react-redux');
 import ItemList from 'ItemList';
-import SortButton from 'SortButton'
+import SortByButton from 'SortByButton'
 
 export var Main = React.createClass({
   render(){
     return (
         <div>
-          <SortButton/>
+          <SortByButton/>
           <ItemList/>
         </div>
       );
