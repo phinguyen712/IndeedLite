@@ -4,6 +4,7 @@ var expect = require('expect');
 var df = require('deep-freeze-strict');
 
 describe('Reducers', () => {
+
   describe('SET_PRODUCTS', () => {
     it('Load Products Reducer with API Data', () => {
       var action = {
@@ -15,4 +16,18 @@ describe('Reducers', () => {
       expect(res).toEqual(action.products);
     });
   });
+
+  describe('SET_PRODUCTS', () => {
+    it('Load Products Reducer with API Data', () => {
+      var action = {
+        type: 'CHANGE_ORDER',
+        order: 'ascending'
+      };
+      var res = reducers.orderReducer(df(''), df(action));
+
+      expect(res).toEqual(action.order);
+    });
+  });
+
+
 });
