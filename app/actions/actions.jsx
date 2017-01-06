@@ -12,3 +12,10 @@ export var changeOrder = (order) => {
     order
   };
 };
+
+export var toggleDiscount = (disCount) => {
+  return {
+    type: 'TOGGLE_DISCOUNT',
+    disCount
+  };
+};

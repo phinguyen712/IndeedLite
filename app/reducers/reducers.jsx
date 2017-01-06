@@ -17,3 +17,12 @@ export var orderReducer = (state = "descending", action) => {
       return state;
   };
 };
+
+export var disCountReducer = (state = false, action) => {
+  switch (action.type) {
+    case 'TOGGLE_DISCOUNT':
+      return !state;
+    default:
+      return state;
+  };
+};

@@ -1,8 +1,9 @@
 var React = require('react');
 var {connect} = require('react-redux');
 var actions = require('actions');
-import ItemList from 'ItemList'
-import OrderButton from 'OrderButton'
+import ItemList from 'ItemList';
+import OrderButton from 'OrderButton';
+import DisCount from 'DisCount';
 
 
 // Close the dropdown menu if the user clicks outside of it
@@ -60,6 +61,7 @@ export var SortByButton = React.createClass({
           <a className="Date" onClick={()=>this.sortCategory('createdAt')}>Date</a>
         </div>
         <OrderButton/>
+        <DisCount/>
       </div>
       );
     }

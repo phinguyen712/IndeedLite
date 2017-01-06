@@ -17,6 +17,6 @@ product price
 If you choose to style the application, please do not use a CSS framework.
 
 Bonus Questions:
-Create a filtering rule (eg, hide products if less than $20)
-Create sorting rule (eg, display products by name, price, date)
+Build a minicart feature that allows the user to add and remove items.
+Add a checkbox to toggle a user between wholesale & retail. (If wholesale, discount prices by 25%)
 How would you test this application?
