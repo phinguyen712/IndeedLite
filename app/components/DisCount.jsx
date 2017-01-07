@@ -7,13 +7,15 @@ export var DisCount= React.createClass({
   render(){
     var {showDisCount, dispatch} = this.props;
     return (
-        <form action="">
-          <label>Show Discount</label>
-          <input type="checkbox" checked={showDisCount} onChange={
-          //update showDisCount reducer to either true or false whenever checkbox is clicked
-          ()=> dispatch(actions.toggleDiscount())
-          }/>
-        </form>
+      <div>
+        <form ref="toggleDisCounts">
+            <label>Show Discount</label>
+            <input ref="toggleDiscount" type="checkbox" checked={showDisCount} onChange={
+                //update showDisCount reducer to either true or false whenever checkbox is clicked
+              ()=>{dispatch(actions.toggleDiscount())}
+            }/>
+          </form>
+        </div>
     );
   }
 });

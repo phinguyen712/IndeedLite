@@ -18,7 +18,7 @@ export const itemListInput =
       id: 1665238,
       name: "Aaa",
       mainImage:{ref:"testimg3"},
-      defaultPriceInCents: 20900,
-      msrpInCents: 20900
+      defaultPriceInCents: 3900,
+      msrpInCents: 3900
     }
   ];

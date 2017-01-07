@@ -3,7 +3,7 @@ var ReactDOM = require('react-dom');
 var expect = require('expect');
 var TestUtils = require('react-addons-test-utils');
 var {Provider} = require('react-redux');
-var itemListInput = require('Input').itemListInput;
+var products = require('Input').itemListInput;
 import {configure} from 'configureStore';
 import SortByButton from 'SortByButton';
 import Item from 'Item';
@@ -17,7 +17,6 @@ describe('SortByButton', () => {
   it('should sort product name by  descending', () => {
 
     var order = "descending";
-    var products =  itemListInput;
     var store = configure({
       products,
       order

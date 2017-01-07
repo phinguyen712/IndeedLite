@@ -4,7 +4,7 @@ var ReactDOM = require('react-dom');
 var expect = require('expect');
 var TestUtils = require('react-addons-test-utils');
 var {Provider} = require('react-redux');
-var itemListInput = require('Input').itemListInput;
+var products = require('Input').itemListInput;
 import {configure} from 'configureStore';
 import Item from 'Item';
 import ItemList from 'ItemList';
@@ -12,7 +12,6 @@ import ItemList from 'ItemList';
 
 
 describe('ItemList', () => {
-var products = itemListInput;
 //Test if Itemlist generates an item for every item in the products state
   it('should render Item for every product in ItemList', () => {
 
@@ -26,7 +25,7 @@ var products = itemListInput;
         <ItemList/>
       </Provider>
     );
-  
+
     //find the first instance of ItemList in ItemList component and place it into array
     var ItemListInstance = TestUtils.scryRenderedComponentsWithType(provider, ItemList)[0];
 

@@ -13,9 +13,8 @@ export var changeOrder = (order) => {
   };
 };
 
-export var toggleDiscount = (disCount) => {
+export var toggleDiscount = () => {
   return {
-    type: 'TOGGLE_DISCOUNT',
-    disCount
+    type: 'TOGGLE_DISCOUNT'
   };
 };

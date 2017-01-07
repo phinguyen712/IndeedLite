@@ -4,36 +4,40 @@ var ReactDOM = require('react-dom');
 var expect = require('expect');
 var TestUtils = require('react-addons-test-utils');
 var {Provider} = require('react-redux');
-var itemListInput = require('Input').itemListInput;
+var products = require('Input').itemListInput;
 import {configure} from 'configureStore';
 import Item from 'Item';
 import ItemList from 'ItemList';
+import {DisCount} from 'DisCount';
+import SortByButton from 'SortByButton'
 
+//test if DisCount only show discounted Items
+describe('DisCount', () => {
+  it('Filter out items that are under 2000 price', () => {
 
-
-describe('ItemList', () => {
-var products = itemListInput;
-//Test if Itemlist generates an item for every item in the products state
-  it('should render Item for every product in ItemList', () => {
+    //simulate discount checkbox
+    var showDisCount = false;
 
     var store = configure({
+      showDisCount,
       products
     });
 
-    //Render ItemList component with store
-    var provider = TestUtils.renderIntoDocument(
+    var action = {
+        type:'TOGGLE_DISCOUNT'
+    };
+
+    var spy = expect.createSpy();
+
+    var tester = TestUtils.renderIntoDocument(
       <Provider store={store}>
-        <ItemList/>
+          <DisCount dispatch={spy}/>
       </Provider>
     );
 
-    //find the first instance of ItemList in ItemList component and place it into array
-    var ItemListInstance = TestUtils.scryRenderedComponentsWithType(provider, ItemList)[0];
+    TestUtils.Simulate.change($(ReactDOM.findDOMNode(tester)).find('input')[0]);
 
-    //find all instaces of Item in ItemLists
-    var ItemInstance = TestUtils.scryRenderedComponentsWithType(ItemListInstance, Item);
-    //compare lenght of items to all instances of Item in ItemList
-    expect(ItemInstance.length).toBe(products.length);
+    expect(spy).toHaveBeenCalledWith(action);
 
   });
 });

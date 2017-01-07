@@ -34,7 +34,6 @@ module.exports = {
       SortPanel:'app/components/SortPanel.jsx',
       OrderButton:'app/components/OrderButton.jsx',
       Input:'app/tests/Input.jsx',
-      DisCount:'app/test/DisCount.jsx'
     },
     extensions: ['', '.js', '.jsx']
   },

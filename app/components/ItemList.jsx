@@ -2,7 +2,6 @@ var React = require('react');
 var {connect} = require('react-redux');
 import Item from 'Item'
 
-//component for displaying items
 export var ItemList = React.createClass({
 
 //generate Item component of each array item in the products reducer
@@ -27,6 +26,7 @@ export var ItemList = React.createClass({
     );
 
   },
+
 
   render:function(){
     return (
