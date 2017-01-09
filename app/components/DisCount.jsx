@@ -5,19 +5,24 @@ var actions = require('actions');
 //component for discount checkbox
 export var DisCount= React.createClass({
   render(){
-    var {showDisCount, dispatch} = this.props;
-    return (
-      <div>
-        <form ref="toggleDisCounts">
-            <label>Show Discount</label>
-            <input ref="toggleDiscount" type="checkbox" checked={showDisCount} onChange={
-                //update showDisCount reducer to either true or false whenever checkbox is clicked
-              ()=>{dispatch(actions.toggleDiscount())}
-            }/>
-          </form>
-        </div>
-    );
-  }
+
+      var {showDisCount, dispatch} = this.props;
+      //update showDisCount reducer to either true or false whenever checkbox is clicked
+      return (
+        <div>
+          <form ref="toggleDisCounts">
+              <label>Show Discount</label>
+
+              <input ref="toggleDiscount"
+                type="checkbox"
+                checked={showDisCount}
+                onChange={()=>{dispatch(actions.toggleDiscount())}
+              }/>
+            </form>
+          </div>
+      );
+
+    }
 });
 
 

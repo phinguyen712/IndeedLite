@@ -8,16 +8,25 @@ import DisCount from 'DisCount';
 
 // Close the dropdown menu if the user clicks outside of it
 window.onclick = function(event) {
+
   if (!event.target.matches('.dropbtn')) {
+
     var dropdowns = document.getElementsByClassName("dropdown-content");
+
     var i;
+
     for (i = 0; i < dropdowns.length; i++) {
+
       var openDropdown = dropdowns[i];
+
       if (openDropdown.classList.contains('show')) {
         openDropdown.classList.remove('show');
       }
+
     }
+
   }
+
 };
 
 
@@ -29,42 +38,33 @@ var toggleDropDown=()=>{
 //Component for Sory By Button
 export var SortByButton = React.createClass({
   // method for sorting name,date,price by descending/ascending
-  sortCategory(category){
-    var {order,products,dispatch} = this.props;
-    //create copy of products so we don't mutate state
-    products = products.slice()
-    //sort products by order reducer (ascending/descending)
-    products = products.sort((a,b)=>{
-                  a = a[category];
+  sortCategory(sortBy){
+      var { order, products, dispatch} = this.props;
 
-                  b = b[category];
-                  //variable for determining if order is descending/ascending
-                  var order = (order === "descending") ? 1:-1;
-
-                  if(a>b){
-                    return order;
-                  }else if(a===b){
-                    return 0;
-                  }else{
-                    return -1*(order);
-                  }
-    })
-    dispatch(actions.updateProducts(products));
+      //update sortBy Reducer
+      dispatch(actions.sortBy(sortBy));
+      //update product reducer base on new sorted parameters
+      dispatch(actions.updateProducts({
+                                      products:products,
+                                      order:order,
+                                      sortBy:sortBy
+                                    }));
   },
+
   render(){
-    return (
-      <div className="dropdown">
-        <button onClick={toggleDropDown} className="dropbtn">Sort By</button>
-        <div id="myDropdown" className="dropdown-content">
-          <a className="Name" onClick={()=>this.sortCategory('name')}>Name</a>
-          <a className="Price" onClick={()=>this.sortCategory('defaultPriceInCents')}>Price</a>
-          <a className="Date" onClick={()=>this.sortCategory('createdAt')}>Date</a>
+      return (
+        <div className="dropdown">
+          <button onClick={toggleDropDown} className="dropbtn">Sort By</button>
+          <div id="myDropdown" className="dropdown-content">
+            <a className="Name" onClick={()=>this.sortCategory('name')}>Name</a>
+            <a className="Price" onClick={()=>this.sortCategory('defaultPriceInCents')}>Price</a>
+            <a className="Date" onClick={()=>this.sortCategory('createdAt')}>Date</a>
+          </div>
+          <OrderButton/>
+          <DisCount/>
         </div>
-        <OrderButton/>
-        <DisCount/>
-      </div>
-      );
-    }
+        );
+      }
 })
 
 

@@ -35,4 +35,5 @@ describe('ItemList', () => {
     expect(ItemInstance.length).toBe(products.length);
 
   });
+
 });

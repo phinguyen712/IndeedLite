@@ -18,7 +18,7 @@ describe('Reducers', () => {
   });
 
   describe('SET_PRODUCTS', () => {
-    it('Load Products Reducer with API Data', () => {
+    it('Change sorted order from ascending to descending', () => {
       var action = {
         type: 'CHANGE_ORDER',
         order: 'ascending'
@@ -29,5 +29,15 @@ describe('Reducers', () => {
     });
   });
 
+  describe('SET_PRODUCTS', () => {
+    it('Toggle true/false on discount', () => {
+      var action = {
+        type: 'TOGGLE_DISCOUNT',
+      };
+      var res = reducers.orderReducer(df(true), df(action));
+
+      expect(res).toEqual(true);
+    });
+  });
 
 });

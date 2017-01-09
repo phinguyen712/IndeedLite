@@ -14,11 +14,10 @@ export const itemListInput =
         defaultPriceInCents: 10900,
         msrpInCents: 10900
     },{
-      createdAt: 1422317527001,
-      id: 1665238,
-      name: "Aaa",
-      mainImage:{ref:"testimg3"},
-      defaultPriceInCents: 3900,
-      msrpInCents: 3900
-    }
-  ];
+        createdAt: 1422317527001,
+        id: 1665238,
+        name: "Aaa",
+        mainImage:{ref:"testimg3"},
+        defaultPriceInCents: 3900,
+        msrpInCents: 3900
+    }];

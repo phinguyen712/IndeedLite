@@ -7,26 +7,25 @@ export var ItemList = React.createClass({
 //generate Item component of each array item in the products reducer
   displayItems(){
 
-    var {showDisCount,products} = this.props;
+      var {showDisCount,products} = this.props;
 
-    return(
-      products.map(function(product,index){
-          var displayItem = <Item
-                                  key={product.id}
-                                  index={index}
-                                  product={product}
+      return(
+        products.map(function(product,index){
+            var displayItem = <Item
+                                key={product.id}
+                                index={index}
+                                product={product}
                               />
-          //return only discounted items if checkbox is true
-          if(showDisCount){
-            return  (product.defaultPriceInCents <= 2000)?displayItem:"";
-          }else{
-            return displayItem;
-          }
-      })
-    );
 
+            //return only discounted items if checkbox is true
+            if(showDisCount){
+              return  (product.defaultPriceInCents <= 2000)?displayItem:"";
+            }else{
+              return displayItem;
+            }
+        })
+      );
   },
-
 
   render:function(){
     return (
@@ -35,6 +34,7 @@ export var ItemList = React.createClass({
       </div>
       );
   }
+
 });
 
 

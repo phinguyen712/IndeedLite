@@ -40,4 +40,5 @@ describe('DisCount', () => {
     expect(spy).toHaveBeenCalledWith(action);
 
   });
+
 });
