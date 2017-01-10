@@ -12,7 +12,6 @@ export var DisCount= React.createClass({
         <div>
           <form ref="toggleDisCounts">
               <label>Show Discount</label>
-
               <input ref="toggleDiscount"
                 type="checkbox"
                 checked={showDisCount}

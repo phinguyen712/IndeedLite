@@ -19,7 +19,8 @@ describe('SortByButton', () => {
     var order = "descending";
     var store = configure({
       products,
-      order
+      order,
+    
     });
 
     //Render ItemList component with store
@@ -37,7 +38,7 @@ describe('SortByButton', () => {
       return product.name;
     })
 
-    expect(sortedProductByName).toEqual(["ZZZ","Cab","Aaa"]);
+    expect(sortedProductByName).toEqual(["Aaa","Cab","ZZZ"]);
 
   });
 });

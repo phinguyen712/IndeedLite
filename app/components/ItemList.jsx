@@ -1,21 +1,27 @@
 var React = require('react');
 var {connect} = require('react-redux');
 import Item from 'Item'
+var actions = require('actions');
+
 
 export var ItemList = React.createClass({
 
 //generate Item component of each array item in the products reducer
   displayItems(){
 
-      var {showDisCount,products} = this.props;
+      var {showDisCount,products, dispatch} = this.props;
 
       return(
-        products.map(function(product,index){
-            var displayItem = <Item
-                                key={product.id}
-                                index={index}
-                                product={product}
-                              />
+        products.map((product,index)=>{
+
+            var displayItem =
+              <div key={product.id} className="item">
+                <Item index={index} product={product}/>
+                <button className="dropbtn"
+                  onClick={()=>{dispatch(actions.addToCart(product.id))}}>
+                  Add To Cart
+                </button>
+              </div>
 
             //return only discounted items if checkbox is true
             if(showDisCount){

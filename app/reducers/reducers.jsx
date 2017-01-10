@@ -60,10 +60,24 @@ export var disCountReducer = (state = false, action) => {
   };
 };
 
-export var cartReducer = (state = "", action) => {
+export var cartReducer = (state = [], action) => {
   switch (action.type) {
-    case 'UPDATE_CART':
-      return action.cart
+    case 'ADD_TO_CART':
+      //adds id to cart If Id already exist, increase qty key in the cart.
+      //stops mutation to state
+      state = state.slice();
+      //return current state with only array
+      var stateId= state.map((stateId)=>{return stateId.id})
+      //sees if item id already exist in cart
+      var cartArrIndex = stateId.indexOf(action.item);
+      //if yes, increase qty
+      if(cartArrIndex != -1){
+        state[cartArrIndex].qty += 1;
+        return state;
+      //if no add new id to cart
+      }else{
+        return [...state,{id:action.item,qty:1}]
+      }
     default:
       return state;
   };

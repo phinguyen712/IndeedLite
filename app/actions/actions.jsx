@@ -28,9 +28,9 @@ export var toggleDiscount = () => {
   };
 };
 
-export var updateCartItems = (cart) => {
+export var addToCart = (item) => {
   return {
-    type: 'UPDATE_CART',
-    cart
+    type: 'ADD_TO_CART',
+    item
   };
 };
