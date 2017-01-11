@@ -32,7 +32,7 @@ export var OrderButton = React.createClass({
 
   render(){
       return (
-        <button onClick={this.sortOrder} className={this.orderIcon()}></button>
+        <button onClick={this.sortOrder} id="order-button" className={this.orderIcon()}></button>
         );
       }
 })

@@ -1,5 +1,14 @@
 Market website for Symphony Commerce's interview Challenge
 
+Technologies used:
+React/Redux, Javascript,JQuery, CSS/SCSS, HTML
+Application tested with: Mocha Karma, using MJackson's expect library
+
+To run application run in console
+
+npm install
+webpack -w
+node server
 
 ///////////////
 Code Challenge

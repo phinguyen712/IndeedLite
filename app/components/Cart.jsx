@@ -11,7 +11,7 @@ export var Cart= React.createClass({
     var {cart,products, dispatch} = this.props;
 
 
-        //populate cart reducer by pulling from pulling product object 
+        //populate cart reducer by pulling from pulling product object
         cart = cart.slice().map((itemId)=>{
 
           var product = products.find((product)=>{
@@ -24,17 +24,21 @@ export var Cart= React.createClass({
         //render Item component for every item in cart
         return( cart.map((cartItem,index)=>{
           return(
-            <div key={cartItem.product.id}>
-                <Item
-                  index={index}
-                  product={cartItem.product}
-                  qty={cartItem.qty}
-                />
-                <h3>qty.{cartItem.qty}</h3>
-                <button className="dropbtn"
-                  onClick={()=>{dispatch(actions.removeFromCart(cartItem.product.id))
-                  }}>
-                </button>
+            <div className="cart-row" key={cartItem.product.id}>
+                <div className="cart-item">
+                    <Item
+                      index={index}
+                      product={cartItem.product}
+                      qty={cartItem.qty}
+                    />
+                </div>
+                <div className="cart-info">
+                    <h3>qty.{cartItem.qty}</h3>
+                    <button className="delete-button"
+                      onClick={()=>{dispatch(actions.removeFromCart(cartItem.product.id))
+                      }}><h4>Remove</h4>
+                    </button>
+                </div>
               </div>
             );
         })
@@ -45,6 +49,7 @@ export var Cart= React.createClass({
     var {showDisCount, dispatch} = this.props;
     return (
       <div>
+        <h1 className="minicart-title">Your mini cart</h1>
         <ul>
           {this.cartItems()}
         </ul>

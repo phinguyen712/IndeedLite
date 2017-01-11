@@ -21,7 +21,6 @@ export var DisCount= React.createClass({
             </form>
 
       );
-
     }
 });
 

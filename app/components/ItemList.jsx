@@ -18,7 +18,7 @@ export var ItemList = React.createClass({
 
               <div key={product.id} className="item small-one-whole medium-one-third">
                 <Item index={index} product={product}/>
-                <button className="dropbtn"
+                <button className="add-button"
                   onClick={()=>{dispatch(actions.addToCart(product.id))}}>
                   Add To Cart
                 </button>

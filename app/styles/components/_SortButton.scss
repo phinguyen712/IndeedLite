@@ -1,9 +1,16 @@
+.dropdown{
+  margin-top:20px;
+}
 .dropdown button{
   height:30px;
   margin-left: 10px;
+  border-radius: 3px;
+  background-color:$blue;
+  border-width:none;
 }
-.fa{
+.order-button{
   width:30px;
+  margin-top:2px;
 }
 /* Dropdown Content (Hidden by Default) */
 .dropdown-content {
