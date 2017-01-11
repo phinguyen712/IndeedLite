@@ -34,3 +34,10 @@ export var addToCart = (item) => {
     item
   };
 };
+
+export var removeFromCart = (item) => {
+  return {
+    type: 'REMOVE_FROM_CART',
+    item
+  };
+};

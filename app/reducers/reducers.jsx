@@ -34,6 +34,7 @@ export var productsReducer = (state = {}, action) => {
   };
 };
 
+
 export var orderReducer = (state = "descending", action) => {
   switch (action.type) {
     case 'CHANGE_ORDER':
@@ -43,6 +44,7 @@ export var orderReducer = (state = "descending", action) => {
   };
 };
 
+
 export var sortByReducer = (state = "", action) => {
   switch (action.type) {
     case 'SORT_BY':
@@ -51,6 +53,8 @@ export var sortByReducer = (state = "", action) => {
       return state;
   };
 };
+
+
 export var disCountReducer = (state = false, action) => {
   switch (action.type) {
     case 'TOGGLE_DISCOUNT':
@@ -60,8 +64,10 @@ export var disCountReducer = (state = false, action) => {
   };
 };
 
+
 export var cartReducer = (state = [], action) => {
   switch (action.type) {
+
     case 'ADD_TO_CART':
       //adds id to cart If Id already exist, increase qty key in the cart.
       //stops mutation to state
@@ -78,6 +84,24 @@ export var cartReducer = (state = [], action) => {
       }else{
         return [...state,{id:action.item,qty:1}]
       }
+
+    case 'REMOVE_FROM_CART':
+
+      state = state.slice();
+      //create new array with only id
+      var idOnly = state.map((state)=>{
+        return state.id;
+      })
+      //find index location that matches item id
+      var index = idOnly.indexOf(action.item);
+      // -1 qty if larger than 1, else remove item from array
+      if(state[index].qty === 1){
+        state.splice(index,1)
+      }else{
+        state[index].qty -= 1
+      }
+      return state
+
     default:
       return state;
   };

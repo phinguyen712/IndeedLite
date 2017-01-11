@@ -15,7 +15,8 @@ export var ItemList = React.createClass({
         products.map((product,index)=>{
 
             var displayItem =
-              <div key={product.id} className="item">
+
+              <div key={product.id} className="item small-one-whole medium-one-third">
                 <Item index={index} product={product}/>
                 <button className="dropbtn"
                   onClick={()=>{dispatch(actions.addToCart(product.id))}}>
@@ -35,7 +36,7 @@ export var ItemList = React.createClass({
 
   render:function(){
     return (
-      <div>
+      <div className='container'>
           {this.displayItems()}
       </div>
       );

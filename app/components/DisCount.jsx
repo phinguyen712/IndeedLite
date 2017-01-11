@@ -9,16 +9,17 @@ export var DisCount= React.createClass({
       var {showDisCount, dispatch} = this.props;
       //update showDisCount reducer to either true or false whenever checkbox is clicked
       return (
-        <div>
-          <form ref="toggleDisCounts">
-              <label>Show Discount</label>
+
+          <form className="discount">
+              <label for="checkbox">Show Discount</label>
               <input ref="toggleDiscount"
+                className="checkbox-discount"
                 type="checkbox"
                 checked={showDisCount}
                 onChange={()=>{dispatch(actions.toggleDiscount())}
               }/>
             </form>
-          </div>
+
       );
 
     }
