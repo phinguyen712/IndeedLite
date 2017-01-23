@@ -1,4 +1,4 @@
-Market website for Symphony Commerce's interview Challenge
+Market website for Symphony code challenge/
 
 Technologies used:
 React/Redux, Javascript,JQuery, CSS/SCSS, HTML
@@ -9,6 +9,9 @@ To run application run in console
 npm install
 webpack -w
 node server
+
+To run unit test
+npm -test
 
 ///////////////
 Code Challenge
@@ -27,5 +30,5 @@ If you choose to style the application, please do not use a CSS framework.
 
 Bonus Questions:
 Build a minicart feature that allows the user to add and remove items.
-Add a checkbox to toggle a user between wholesale & retail. (If wholesale, discount prices by 25%)
+Add a checkbox to toggle a user between wholesale & retail. (If wholesale, discount prices by 20%)
 How would you test this application?
