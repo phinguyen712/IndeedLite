@@ -13,32 +13,31 @@ import SortByButton from 'SortByButton'
 
 //test if DisCount only show discounted Items
 describe('DisCount', () => {
-  it('Filter out items that are under 2000 price', () => {
+    it('Filter out items that are under 2000 price', () => {
+          //simulate discount checkbox
+          var showDisCount = false;
 
-    //simulate discount checkbox
-    var showDisCount = false;
+          var store = configure({
+            showDisCount,
+            products
+          });
 
-    var store = configure({
-      showDisCount,
-      products
-    });
+          var action = {
+              type:'TOGGLE_DISCOUNT'
+          };
 
-    var action = {
-        type:'TOGGLE_DISCOUNT'
-    };
+          var spy = expect.createSpy();
 
-    var spy = expect.createSpy();
+          var tester = TestUtils.renderIntoDocument(
+            <Provider store={store}>
+                <DisCount dispatch={spy}/>
+            </Provider>
+          );
 
-    var tester = TestUtils.renderIntoDocument(
-      <Provider store={store}>
-          <DisCount dispatch={spy}/>
-      </Provider>
-    );
+          TestUtils.Simulate.change($(ReactDOM.findDOMNode(tester)).find('input')[0]);
 
-    TestUtils.Simulate.change($(ReactDOM.findDOMNode(tester)).find('input')[0]);
+          expect(spy).toHaveBeenCalledWith(action);
 
-    expect(spy).toHaveBeenCalledWith(action);
-
-  });
+      });
 
 });

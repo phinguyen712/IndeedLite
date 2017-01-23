@@ -8,6 +8,7 @@ import ItemList from 'ItemList';
 export var OrderButton = React.createClass({
   //changes icon on button based on current state(ascending/descending)
   orderIcon(){
+
       var {order} =this.props;
 
       if(order === 'descending'){
@@ -15,6 +16,7 @@ export var OrderButton = React.createClass({
       }else{
         return 'fa fa-sort-amount-asc'
       }
+
   },
   //changes changeOrder reducer when button is clicked
   sortOrder(){

@@ -11,19 +11,19 @@ window.onclick = function(event) {
 
   if (!event.target.matches('.dropbtn')) {
 
-    var dropdowns = document.getElementsByClassName("dropdown-content");
+      var dropdowns = document.getElementsByClassName("dropdown-content");
 
-    var i;
+      var i;
 
-    for (i = 0; i < dropdowns.length; i++) {
+      for (i = 0; i < dropdowns.length; i++) {
 
-      var openDropdown = dropdowns[i];
+          var openDropdown = dropdowns[i];
 
-      if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
+          if (openDropdown.classList.contains('show')) {
+              openDropdown.classList.remove('show');
+          }
+
       }
-
-    }
 
   }
 
@@ -39,8 +39,8 @@ var toggleDropDown=()=>{
 export var SortByButton = React.createClass({
   // method for sorting name,date,price by descending/ascending
   sortCategory(sortBy){
-      var { order, products, dispatch} = this.props;
 
+      var { order, products, dispatch} = this.props;
       //update sortBy Reducer
       dispatch(actions.sortBy(sortBy));
       //update product reducer base on new sorted parameters

@@ -5,6 +5,7 @@ var actions = require('actions');
 export var Item = React.createClass({
 //generate a component of each item in the products state
   render(){
+    
     var {product,dispatch} = this.props;
 
     return (
