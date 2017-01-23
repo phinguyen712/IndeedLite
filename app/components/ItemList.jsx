@@ -14,8 +14,7 @@ export var ItemList = React.createClass({
       return(
         products.map((product,index)=>{
 
-            var displayItem =
-
+          var displayItem =
               <div key={product.id} className="item small-one-whole medium-one-third">
                 <Item index={index} product={product}/>
                 <button className="add-button"
@@ -30,6 +29,7 @@ export var ItemList = React.createClass({
             }else{
               return displayItem;
             }
+
         })
       );
   },

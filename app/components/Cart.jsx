@@ -7,9 +7,9 @@ import Item from 'Item'
 export var Cart= React.createClass({
   cartItems(){
 
-    var {cart,products, dispatch} = this.props;
+        var {cart,products, dispatch} = this.props;
 
-        //populate cart reducer by pulling from pulling product object
+        //populate cart reducer by pulling from product object
         cart = cart.slice().map((itemId)=>{
 
                 var product = products.find((product)=>{
@@ -17,6 +17,7 @@ export var Cart= React.createClass({
                 });
 
                 return {product:product,qty:itemId.qty};
+
         });
 
         //render Item component for every item in cart
@@ -56,6 +57,7 @@ export var Cart= React.createClass({
       </div>
     );
   }
+
 });
 
 
