@@ -1,25 +1,21 @@
 var React = require('react');
 var {connect} = require('react-redux');
-import ItemList from 'ItemList';
-import SortByButton from 'SortByButton';
-var {Link, IndexLink} = require('react-router');
 
 export var Main = React.createClass({
 
-  totalCartItems(){
-
+  totalCartItems () {
     var {cart} = this.props;
 
     var totalQty = 0;
 
-    cart.forEach((cartItem)=>{
-      totalQty += cartItem.qty
+    cart.forEach((cartItem) => {
+      totalQty += cartItem.qty;
     });
 
     return totalQty;
   },
 
-  render(){
+  render () {
     return (
         <div>
           <div className="head-image">
@@ -32,16 +28,14 @@ export var Main = React.createClass({
           <SortByButton/>
           <ItemList/>
         </div>
-      );
-    }
+    );
+  }
 });
-
-
 
 export default connect(
   (state) => {
     return {
       cart: state.cart
-    }
+    };
   }
 )(Main);

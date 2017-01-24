@@ -1,10 +1,10 @@
-//actions for calling reducers
+//  actions for calling reducers
 export var updateProducts = (update) => {
   return {
     type: 'SET_PRODUCTS',
     products:update.products,
     order:update.order,
-    sortBy:update.sortBy
+    sortBy:update.sortBy,
   };
 };
 

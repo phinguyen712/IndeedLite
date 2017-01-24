@@ -29,7 +29,6 @@ describe('OrderButton', () => {
     var $el = $(ReactDOM.findDOMNode(provider));
     //simulate the OrderButton being clicked
     TestUtils.Simulate.click($el[0]);
-
     //order should be updated to ascending
     expect(store.getState().order).toEqual("ascending");
 

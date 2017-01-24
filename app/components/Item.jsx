@@ -1,12 +1,11 @@
 var React = require('react');
 var {connect} = require('react-redux');
-var actions = require('actions');
 
+// component for each Item
 export var Item = React.createClass({
-//generate a component of each item in the products state
-  render(){
-    
-    var {product,dispatch} = this.props;
+
+  render () {
+    var {product} = this.props;
 
     return (
         <a>
@@ -18,6 +17,5 @@ export var Item = React.createClass({
   }
 });
 
-
-//setting products as state.
+// setting products as state.
 export default connect()(Item);

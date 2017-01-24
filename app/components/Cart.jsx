@@ -1,53 +1,48 @@
 var React = require('react');
 var {connect} = require('react-redux');
 var actions = require('actions');
-import Item from 'Item'
 
-//component for Mini Cart
-export var Cart= React.createClass({
-  cartItems(){
+// component for Mini Cart
+export var Cart = React.createClass({
 
-        var {cart,products, dispatch} = this.props;
+  cartItems () {
+    var {cart, products, dispatch} = this.props;
 
-        //populate cart reducer by pulling from product object
-        cart = cart.slice().map((itemId)=>{
+    // populate cart reducer by pulling from product object
+    cart = cart.slice().map((itemId) => {
+      var product = products.find((product) => {
+        return product.id === itemId.id;
+      });
 
-                var product = products.find((product)=>{
-                      return product.id === itemId.id ;
-                });
+      return {product: product, qty: itemId.qty};
+    });
 
-                return {product:product,qty:itemId.qty};
-
-        });
-
-        //render Item component for every item in cart
-        return( cart.map((cartItem,index)=>{
-
-            return(
-                <div className="cart-row" key={cartItem.product.id}>
-                    <div className="cart-item">
-                        <Item
-                          index={index}
-                          product={cartItem.product}
-                          qty={cartItem.qty}
-                        />
-                    </div>
-                    <div className="cart-info">
-                        <h3>qty.{cartItem.qty}</h3>
-                        <button className="delete-button"
-                          onClick={()=>{dispatch(actions.removeFromCart(cartItem.product.id))
-                          }}><h4>Remove</h4>
-                        </button>
-                    </div>
-                </div>
-              );
-
-        })
-      )
+        // render Item component for every item in cart
+    return (cart.map((cartItem, index) => {
+      return (
+          <div className="cart-row" key={cartItem.product.id}>
+              <div className="cart-item">
+                  <Item
+                    index={index}
+                    product={cartItem.product}
+                    qty={cartItem.qty}
+                  />
+              </div>
+              <div className="cart-info">
+                  <h3>qty.{cartItem.qty}</h3>
+                  <button className="delete-button"
+                    onClick={() => {
+                      dispatch(actions.removeFromCart(cartItem.product.id));
+                    }}><h4>Remove</h4>
+                  </button>
+              </div>
+          </div>
+      );
+    })
+    );
   },
 
-  render(){
-    var {showDisCount, dispatch} = this.props;
+  render () {
     return (
       <div>
         <h1 className="minicart-title">Your mini cart</h1>
@@ -60,13 +55,11 @@ export var Cart= React.createClass({
 
 });
 
-
-
 export default connect(
   (state) => {
     return {
-      cart:state.cart,
-      products:state.products
-    }
+      cart: state.cart,
+      products: state.products
+    };
   }
 )(Cart);
