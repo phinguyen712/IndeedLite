@@ -27,14 +27,6 @@ module.exports = {
       configureStore: 'app/store/configureStore.jsx',
       actions: 'app/actions/actions.jsx',
       reducers: 'app/reducers/reducers.jsx',
-      ItemList: 'app/components/ItemList.jsx',
-      Item: 'app/components/Item.jsx',
-      DisCount: 'app/components/DisCount.jsx',
-      SortByButton: 'app/components/SortByButton.jsx',
-      SortPanel: 'app/components/SortPanel.jsx',
-      OrderButton: 'app/components/OrderButton.jsx',
-      Cart: 'app/components/Cart.jsx',
-      Input: 'app/tests/Input.jsx'
     },
     extensions: ['', '.js', '.jsx']
   },

@@ -5,7 +5,6 @@ var {Provider} = require('react-redux');
 var store = require('configureStore').configure();
 var actions = require('actions');
 import Main from 'Main';
-import Cart from 'Cart';
 // Load foundation
 
 
@@ -19,11 +18,6 @@ var preLoadApiData = (nextState,replace,callback)=>{
      dataType:"json",
      success:function(returnData){
 
-       store.dispatch(actions.updateProducts({
-          products:returnData.products,
-          order:store.getState().order,
-       }));
-
        callback();
      }
   })
@@ -35,7 +29,6 @@ ReactDOM.render(
   <Provider store={store}>
     <Router history={hashHistory}>
       <Route path="/" component={Main} onEnter={preLoadApiData} />
-      <Route path="/Cart" component={Cart} />
     </Router>
   </Provider>
   ,
