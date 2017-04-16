@@ -1,10 +1,20 @@
-const store = require('configureStore');
-
-export var orderReducer = (state = "descending", action) => {
+export const searchResultsReducer = (state = false, action) => {
   switch (action.type) {
-    case 'CHANGE_ORDER':
-      return action.order;
+    case 'UPDATE_SEARCH_RESULTS':
+      return action.searchResults;
     default:
       return state;
-  };
+  }
+};
+
+export const likedMoviesReducer = (state = false, action) => {
+  switch (action.type) {
+    case 'ADD_LIKE_MOVIE':
+      if(state){
+        return [...state,action.movie];
+      }
+      return [action.movie];
+    default:
+      return state;
+  }
 };

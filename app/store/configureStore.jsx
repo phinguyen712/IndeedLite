@@ -1,10 +1,12 @@
 
 import * as redux from 'redux';
-import {orderReducer} from 'reducers';
+import {searchResultsReducer,
+        likedMoviesReducer} from 'reducers';
 
 export const configure = (initialState = {}) => {
   const reducer = redux.combineReducers({
-    order: orderReducer
+    searchResults: searchResultsReducer,
+    likedMovies: likedMoviesReducer
   });
 
   const store = redux.createStore(reducer, initialState, redux.compose(

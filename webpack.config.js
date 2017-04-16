@@ -23,10 +23,15 @@ module.exports = {
     root: __dirname,
     alias: {
       applicationStyles: 'app/styles/app.scss',
-      Main: 'app/components/Main.jsx',
       configureStore: 'app/store/configureStore.jsx',
       actions: 'app/actions/actions.jsx',
       reducers: 'app/reducers/reducers.jsx',
+      Main: 'app/components/views/main/Main.jsx',
+      SearchForm:'app/components/views/main/searchBar/SearchForm.jsx',
+      SearchResults:'app/components/views/main/searchResults/SearchResults.jsx',
+      MovieList:'app/components/lists/movieList/MovieList.jsx',
+      LikeButton:'app/components/lists/movieList/LikeButton.jsx',
+      MovieDetails:'app/components/lists/movieList/MovieDetails.jsx'
     },
     extensions: ['', '.js', '.jsx']
   },

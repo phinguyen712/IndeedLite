@@ -10,29 +10,16 @@ import Main from 'Main';
 
 // App css
 require('style!css!sass!applicationStyles');
-//Get JSON data and pre load products onto state with Redux
-var preLoadApiData = (nextState,replace,callback)=>{
-    $.ajax({
-     type: "GET",
-     url: "https://sneakpeeq-sites.s3.amazonaws.com/interviews/ce/feeds/store.js",
-     dataType:"json",
-     success:function(returnData){
 
-       callback();
-     }
-  })
-}
 
 
 
 ReactDOM.render(
   <Provider store={store}>
     <Router history={hashHistory}>
-      <Route path="/" component={Main} onEnter={preLoadApiData} />
+      <Route path="/" component={Main} />
     </Router>
   </Provider>
   ,
   document.getElementById('app')
 );
-
-export default preLoadApiData;

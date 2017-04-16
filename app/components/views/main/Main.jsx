@@ -1,14 +1,15 @@
 const 	React = require('react'),
-        {connect} = require('react-redux'),
-        {Link, IndexLink} = require('react-router');
+  {connect} = require('react-redux');
 
+import SearchForm from 'SearchForm';
+import SearchResults from 'SearchResults';
 
-export const Main = React.createClass({
-
+const Main = React.createClass({
   render () {
     return (
         <div>
-          <h1>Heading</h1>
+          <SearchForm/>
+          <SearchResults/>
         </div>
     );
   }

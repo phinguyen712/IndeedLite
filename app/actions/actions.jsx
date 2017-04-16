@@ -1,8 +1,15 @@
 //  actions for calling reducers
 
-export const changeOrder = (order) => {
+export const searchResults = (searchResults) => {
   return {
-    type: 'CHANGE_ORDER',
-    order
+    type: 'UPDATE_SEARCH_RESULTS',
+    searchResults
+  };
+};
+
+export const addLikeMovie = (movie) => {
+  return {
+    type: 'ADD_LIKE_MOVIE',
+    movie
   };
 };
