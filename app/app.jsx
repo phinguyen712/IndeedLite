@@ -1,23 +1,24 @@
-var React = require('react');
-var ReactDOM = require('react-dom');
-var {Route, Router, IndexRoute, hashHistory} = require('react-router');
-var {Provider} = require('react-redux');
-var store = require('configureStore').configure();
-var actions = require('actions');
-import Main from 'Main';
-// Load foundation
+const React = require('react'),
+  ReactDOM = require('react-dom'),
+  {Route, Router, IndexRoute, hashHistory} = require('react-router'),
+  {Provider} = require('react-redux'),
+  store = require('configureStore').configure();
 
+import Main from 'Main';
+import Home from 'Home';
+import Movie from 'Movie';
 
 // App css
 require('style!css!sass!applicationStyles');
 
 
-
-
 ReactDOM.render(
   <Provider store={store}>
     <Router history={hashHistory}>
-      <Route path="/" component={Main} />
+      <Route path = "/" component={Main}>
+        <IndexRoute component={Home}/>
+        <Route path = "movie/:id" component={Movie} />
+      </Route>
     </Router>
   </Provider>
   ,

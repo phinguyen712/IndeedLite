@@ -6,22 +6,51 @@ const React = require('react'),
 
 //component for rendering list of movies
 const LikeButton = React.createClass({
-  toggleLike(movie){
-    const {dispatch} = this.props;
-    dispatch(actions.addLikeMovie(movie));
+  //I/O for liked button
+  buttonColor(movie, hasLiked){
+    if ( hasLiked !== -1 ){
+      return 'liked-Button';
+    }
+    return 'unliked-Button';
   },
 
+
+  toggleLike(movie,hasLiked){
+    const {dispatch} = this.props;
+    if(hasLiked !== -1){
+      dispatch(actions.removeLikeMovie(hasLiked));
+    }else{
+      dispatch(actions.addLikeMovie(movie));
+    }
+  },
+
+
   render(){
-    const {movie} = this.props;
+    const {movie, likedMovies} = this.props;
+    let hasLiked = -1;
+    //Determine if this Movie is in our likedMovies reducer
+    if(likedMovies){
+      const likedMoviesID = likedMovies.map((likedMovie)=>{
+        return likedMovie.imdbID;
+      });
+      hasLiked = likedMoviesID.indexOf(movie.imdbID);
+    }
+
     return(
-      <button
-        onClick={()=>this.toggleLike(movie)}
-        >
-        like Button
+      <button className={this.buttonColor(movie,hasLiked)}
+        onClick={()=>this.toggleLike(movie,hasLiked)}
+      >
+        Like
       </button>
 
     );
   }
 });
 
-export default connect()(LikeButton);
+export default connect(
+  (state)=>{
+    return{
+      likedMovies:state.likedMovies,
+    };
+  }
+)(LikeButton);

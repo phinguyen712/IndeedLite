@@ -1,5 +1,50 @@
-@import "base/variables";
+// Utils
+@import "utils/mixins";
+@import "utils/variables";
 
 
 // Components
 @import "components/Main";
+@import "components/lists/movielists/MovieList"
+
+
+//Gloabl styles
+/////////////////////////////////////////////
+body {
+    margin: 0;
+    background-color: white;
+    font-family:$main-font;
+    font-weight:$light-weight;
+}
+
+
+/* Grid system */
+.one_fourth{
+  float:left;
+  width:25%;
+}
+.medium_min_one_third{
+  @include grid_min($tablet,33%);
+}
+.inner_grid{
+  max-width:940px;
+  margin:auto;
+}
+
+
+/* Section sizes */
+.section_height{
+  @include device_size_min($tablet){
+    height:$section_height;
+  }
+}
+
+
+.clear{
+  @include clearfix;
+}
+
+/* text alignment */
+.text_center{
+  text-align:center;
+}

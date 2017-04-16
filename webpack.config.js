@@ -26,12 +26,15 @@ module.exports = {
       configureStore: 'app/store/configureStore.jsx',
       actions: 'app/actions/actions.jsx',
       reducers: 'app/reducers/reducers.jsx',
-      Main: 'app/components/views/main/Main.jsx',
-      SearchForm:'app/components/views/main/searchBar/SearchForm.jsx',
-      SearchResults:'app/components/views/main/searchResults/SearchResults.jsx',
+      Main: 'app/components/views/Main.jsx',
+      Home: 'app/components/views/home/Home.jsx',
+      SearchForm:'app/components/views/home/searchBar/SearchForm.jsx',
+      SearchResults:'app/components/views/home/searchResults/SearchResults.jsx',
       MovieList:'app/components/lists/movieList/MovieList.jsx',
       LikeButton:'app/components/lists/movieList/LikeButton.jsx',
-      MovieDetails:'app/components/lists/movieList/MovieDetails.jsx'
+      MovieDetails:'app/components/lists/movieList/MovieDetails.jsx',
+      Movie:'app/components/views/movie/Movie.jsx',
+      CategoryButton:'app/components/buttons/CategoryButton.jsx'
     },
     extensions: ['', '.js', '.jsx']
   },

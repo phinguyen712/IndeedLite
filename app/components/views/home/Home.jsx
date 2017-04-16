@@ -4,7 +4,7 @@ const 	React = require('react'),
 import SearchForm from 'SearchForm';
 import SearchResults from 'SearchResults';
 
-const Main = React.createClass({
+const Home = React.createClass({
   render () {
     return (
         <div>
@@ -15,9 +15,4 @@ const Main = React.createClass({
   }
 });
 
-export default connect(
-  (state) => {
-    return {
-    };
-  }
-)(Main);
+export default connect()(Home);

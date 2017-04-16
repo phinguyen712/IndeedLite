@@ -1,25 +1,38 @@
 const React = require('react'),
   {connect} = require('react-redux'),
+  timestamp = require('time-stamp'),
   actions = require('actions');
+
+import CategoryButton from 'CategoryButton';
 
 const SearchForm = React.createClass({
   searchMovie(){
     const
       omdbUrl ='http://omdbapi.com/?s=',
-      query = this.refs.searchQuery.value,
-      requestUrl = omdbUrl + query;
+      {dispatch, searchCategory} = this.props,
+      query = this.refs.searchQuery.value + '&type=';
 
+    const requestUrl = omdbUrl + query + searchCategory;
     $.ajax({
       type: 'GET',
       url: requestUrl,
       dataType:'json',
-      success:(s)=>{
-        this.populateWithDetailSearch(s.Search);
+      success:(re)=>{
+        if(re.Response ==='False'){
+          return dispatch(actions.searchResults(re));
+        }
+        this.populateWithDetailSearch(re.Search);
+
+        dispatch(actions.addSearchHistory({
+          query:query,
+          time:timestamp('YYYY/MM/DD')
+        }));
       }
     });
   },
 
-  //populate search results with detailed data of the movie
+  //Do API request to Omdb for each movie in the list returned
+  //This is to obtain an even more detailed list
   populateWithDetailSearch(movies){
     const omdbUrl ='http://omdbapi.com/?i=',
       {dispatch} = this.props,
@@ -53,6 +66,7 @@ const SearchForm = React.createClass({
 
   render () {
     return(
+      <div>
         <form className="Navbar-form" onSubmit={this.searchMovie}>
         <div id="search">
             <input type="text" ref="searchQuery" className="searchBox" />
@@ -60,9 +74,22 @@ const SearchForm = React.createClass({
             <button type="submit" id="testbutton"
               className=" glyphicon glyphicon-search btn btn-default">
             </button>
+
         </form>
+        <div>
+          <CategoryButton category = 'movie'/>
+          <CategoryButton category = 'series'/>
+          <CategoryButton category = 'episode'/>
+        </div>
+      </div>
     );
   }
 });
 
-export default connect()(SearchForm);
+export default connect(
+  (state)=>{
+    return{
+      searchCategory:state.searchCategory,
+    };
+  }
+)(SearchForm);

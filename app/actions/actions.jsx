@@ -13,3 +13,24 @@ export const addLikeMovie = (movie) => {
     movie
   };
 };
+
+export const removeLikeMovie = (index) => {
+  return {
+    type: 'REMOVE_LIKE_MOVIE',
+    index
+  };
+};
+
+export const addSearchHistory = (query) => {
+  return {
+    type: 'ADD_SEARCH_HISTORY',
+    query
+  };
+};
+
+export const changeCategory = (category) => {
+  return {
+    type: 'CHANGE_SEARCH_CATEGORY',
+    category
+  };
+};
