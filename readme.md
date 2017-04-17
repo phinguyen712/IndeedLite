@@ -1,34 +1,27 @@
-Market website for Symphony code challenge/
+## Getting Started
+If you don't have some global packages installed yet, you can run the command below:
+```bash
+npm install webpack -g
+and
+```
 
-Technologies used:
-React/Redux, Javascript,JQuery, CSS/SCSS, HTML
-Application tested with: Mocha Karma, using MJackson's expect library
 
-To run application run in console
-
+When building the project for the very first time, run the following command.
+```bash
 npm install
+```
+
+```bash
 webpack -w
-node server
+```
+This will install all of your node modules.
 
-To run unit test
-npm -test
+## Running
+To run the project, simply run the following command
+```bash
+npm start
+```
 
-///////////////
-Code Challenge
-
-Create a simple store page from a given product feed.
-
-Complete a successful API call:
-Fetch data from: https://sneakpeeq-sites.s3.amazonaws.com/interviews/ce/feeds/store.js
-
-Use [Javascript | Angular | React | Redux] to display the following data on a page:
-product image
-product name
-product price
-
-If you choose to style the application, please do not use a CSS framework.
-
-Bonus Questions:
-Build a minicart feature that allows the user to add and remove items.
-Add a checkbox to toggle a user between wholesale & retail. (If wholesale, discount prices by 20%)
-How would you test this application?
+Everything should be available on localhost:3000
+## Details
+The 2 views and controllers and services are located in the src/app/ directory
