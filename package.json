@@ -1,7 +1,7 @@
 {
-  "name": "SymphonyFiji",
+  "name": "MovieLite",
   "version": "1.0.0",
-  "description": "Interview Challange from SymphonyEcommerce",
+  "description": "light weight movie search",
   "main": "server.js",
   "scripts": {
     "test": "karma start",
