@@ -7,7 +7,7 @@ const React = require('react'),
 import Main from 'Main';
 import Home from 'Home';
 import User from 'User';
-import Movie from 'Movie';
+
 
 // App css
 require('style!css!sass!applicationStyles');
@@ -19,7 +19,6 @@ ReactDOM.render(
       <Route path = '/' component={Main}>
         <IndexRoute  component={Home}/>
         <Route path = 'user' component={User} />
-        <Route path = "movie/:id" component={Movie} />
       </Route>
     </Router>
   </Provider>
