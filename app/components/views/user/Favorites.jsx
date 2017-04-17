@@ -9,6 +9,7 @@ import MovieList from 'MovieList';
 //component for rendering search results
 const Favorites = React.createClass({
 
+
   renderMovieLists(favorites){
     return (
       favorites.map((movie)=>{
@@ -19,6 +20,7 @@ const Favorites = React.createClass({
       })
     );
   },
+
 
   render () {
     const {likedMovies} = this.props;

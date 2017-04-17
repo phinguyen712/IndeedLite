@@ -6,6 +6,7 @@ const React = require('react'),
 
 //component for rendering list of movies
 const LikeButton = React.createClass({
+
   //I/O for liked button
   buttonColor(movie, hasLiked){
     if ( hasLiked !== -1 ){
@@ -45,6 +46,7 @@ const LikeButton = React.createClass({
     );
   }
 });
+
 
 export default connect(
   (state)=>{

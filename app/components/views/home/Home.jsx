@@ -4,6 +4,7 @@ const 	React = require('react'),
 import SearchForm from 'SearchForm';
 import SearchResults from 'SearchResults';
 
+//component for rendering home page
 const Home = React.createClass({
   render () {
     return (

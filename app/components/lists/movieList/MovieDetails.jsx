@@ -4,6 +4,7 @@ const React = require('react');
 //component for rendering list of movies
 const MovieList = React.createClass({
 
+
   render(){
     const {movie} = this.props;
     return(
@@ -15,5 +16,6 @@ const MovieList = React.createClass({
     );
   }
 });
+
 
 export default MovieList;

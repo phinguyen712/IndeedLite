@@ -7,7 +7,7 @@ const HistoryList = React.createClass({
 
     return(
         <div>
-          <h4>{history.query}    at  {history.time} </h4>
+          <h4>{history.query}  at  {history.time} </h4>
         </div>
     );
   }

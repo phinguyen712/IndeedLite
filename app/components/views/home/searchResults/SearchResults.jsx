@@ -9,6 +9,7 @@ import MovieList from 'MovieList';
 //component for rendering search results
 const SearchResults = React.createClass({
 
+  //render base on search sucess or fail
   renderResults(searchResults){
     if(searchResults.Response === 'True'){
       return this.renderMovieLists(searchResults.Search);
@@ -17,6 +18,7 @@ const SearchResults = React.createClass({
     }
   },
 
+  //renders sucess
   renderMovieLists(searchResults){
     return (
       searchResults.map((movie)=>{
@@ -28,15 +30,20 @@ const SearchResults = React.createClass({
     );
   },
 
+
   render () {
     const {searchResults} = this.props;
     return(
       <div className = 'search_results'>
-      {this.renderResults(searchResults)}
+        <img className = 'waiting_gif'
+          src = 'https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif'>
+        </img>
+        {this.renderResults(searchResults)}
       </div>
     );
   }
 });
+
 
 export default connect(
   (state)=>{

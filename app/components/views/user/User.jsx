@@ -5,6 +5,7 @@ import Favorites from 'Favorites';
 import History from 'History';
 import ViewButton from 'ViewButton';
 
+//component for rendering view page
 const User = React.createClass({
   render () {
     const {likedMovies, searchHistory} = this.props;

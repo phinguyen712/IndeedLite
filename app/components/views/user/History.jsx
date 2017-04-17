@@ -4,20 +4,21 @@ const React = require('react'),
 
 import HistoryList from 'HistoryList';
 
-//component for rendering search results
+//component for rendering history
 const Favorites = React.createClass({
+
 
   renderHistoryList(searchHistory){
     return (
       searchHistory.map((history)=>{
         const key = uuid();
-        console.log(history);
         return(
             <HistoryList key={key}  history={history}/>
         );
       })
     );
   },
+
 
   render () {
     const {searchHistory} = this.props;

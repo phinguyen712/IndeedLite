@@ -7,6 +7,8 @@ import CategoryButton from 'CategoryButton';
 import ViewButton from 'ViewButton';
 
 const SearchForm = React.createClass({
+
+  //searh OMDB for lists of movies or series
   searchMovie(){
     const
       omdbUrl ='http://omdbapi.com/?s=',
@@ -14,6 +16,10 @@ const SearchForm = React.createClass({
       query = this.refs.searchQuery.value;
 
     const requestUrl = omdbUrl + query + '&type=' + searchCategory;
+
+    //display the waiting gif
+    $('.waiting_gif').css('display','block');
+
     $.ajax({
       type: 'GET',
       url: requestUrl,
@@ -23,7 +29,7 @@ const SearchForm = React.createClass({
           return dispatch(actions.searchResults(re));
         }
         this.populateWithDetailSearch(re.Search);
-
+        //add query to search history
         dispatch(actions.addSearchHistory({
           query:query,
           time:timestamp('YYYY/MM/DD')
@@ -32,8 +38,9 @@ const SearchForm = React.createClass({
     });
   },
 
-  //Do API request to Omdb for each movie in the list returned
-  //This is to obtain an even more detailed list
+
+  //API request to Omdb for each movie in the list returned
+  //This is to obtain a more detailed list
   populateWithDetailSearch(movies){
     const omdbUrl ='http://omdbapi.com/?i=',
       {dispatch} = this.props,
@@ -50,6 +57,10 @@ const SearchForm = React.createClass({
         dataType:'json',
         success:(i)=>{
           asyncCounter++;
+          //remove waiting gf
+          $('.waiting_gif').css('display','none');
+          //Uses a couter to
+          //wait for all async request to finish, then initiate action/reducer
           if(asyncCounter === limit - 1){
             detailedMovies[index] = i;
             return dispatch(actions.searchResults({
@@ -69,7 +80,6 @@ const SearchForm = React.createClass({
     const {searchCategory} = this.props;
     return(
       <div>
-       <ViewButton view = '/user'/>
         <form className='search_form' onSubmit={this.searchMovie}>
             <input className='search_input'
             type='text' ref='searchQuery' />
@@ -77,7 +87,6 @@ const SearchForm = React.createClass({
               className='medium_max_one_whole'>
               Search {searchCategory}
             </button>
-
         </form>
         <div>
           <CategoryButton activeCategory = {searchCategory}
@@ -85,10 +94,12 @@ const SearchForm = React.createClass({
           <CategoryButton activeCategory = {searchCategory}
           category = 'series'/>
         </div>
+        <ViewButton view = '/user'/>
       </div>
     );
   }
 });
+
 
 export default connect(
   (state)=>{

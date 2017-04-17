@@ -4,12 +4,15 @@ import LikeButton from 'LikeButton';
 
 //component for rendering list of movies
 const MovieList = React.createClass({
+
+  //change color of critic reviews
   ratingColor(rating){
     if(rating >= 6){
       return 'good_rating';
     }
     return 'bad_rating';
   },
+
 
   render(){
     const {movie} = this.props;
@@ -41,5 +44,6 @@ const MovieList = React.createClass({
     );
   }
 });
+
 
 export default MovieList;

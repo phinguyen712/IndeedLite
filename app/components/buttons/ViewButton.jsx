@@ -1,7 +1,10 @@
 const React = require('react'),
   {Link} = require('react-router');
 
+//button for swapping between User and Home views
 const ViewButton= React.createClass({
+
+
   returnIcon(view){
     if(view === '/user'){
       return 'fa fa-book';
@@ -9,6 +12,7 @@ const ViewButton= React.createClass({
       return 'fa fa-search';
     }
   },
+
 
   render () {
     const {view} = this.props;
