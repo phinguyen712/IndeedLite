@@ -25,7 +25,8 @@ const Favorites = React.createClass({
 
     return(
       <div className = 'search_results'>
-        {this.renderMovieLists(likedMovies)}}
+        <h3 className = 'title'>Favorites</h3>
+        {this.renderMovieLists(likedMovies)}
       </div>
     );
   }

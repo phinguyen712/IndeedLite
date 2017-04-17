@@ -3,13 +3,11 @@ const 	React = require('react'),
 
 import SearchForm from 'SearchForm';
 import SearchResults from 'SearchResults';
-import ViewButton from 'ViewButton';
 
 const Home = React.createClass({
   render () {
     return (
-        <div id = 'home_container'>
-         <ViewButton view = 'user'/>
+        <div className = 'view_container'>
           <SearchForm/>
           <SearchResults/>
         </div>

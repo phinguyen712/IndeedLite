@@ -1,0 +1,15 @@
+.view_icon{
+  position:fixed;
+  top:$sml-gap;
+  right:10px;
+  font-size: 20px;
+  line-height:30px;
+  background-color:black;
+  color:white;
+  width: $lrg-btn-height;
+  height: $lrg-btn-height;
+  text-align: center;
+  vertical-align: bottom;
+  background-color:$slate-green;
+  border-radius:50%;
+}

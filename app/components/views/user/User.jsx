@@ -7,11 +7,12 @@ import ViewButton from 'ViewButton';
 
 const User = React.createClass({
   render () {
-    const {likedMovies} = this.props;
+    const {likedMovies, searchHistory} = this.props;
     return (
-        <div id = 'home_container'>
+        <div className = 'view_container'>
           <ViewButton view = '/' />
           <Favorites likedMovies = {likedMovies}/>
+          <History searchHistory= {searchHistory}/>
         </div>
     );
   }
@@ -21,6 +22,7 @@ const User = React.createClass({
 export default connect(
   (state) => {
     return {
+      searchHistory:state.searchHistory,
       likedMovies:state.likedMovies
     };
   }

@@ -1,24 +1,33 @@
-
 const React = require('react'),
   {connect} = require('react-redux'),
   uuid = require('uuid/v1');
 
-
-
-
+import HistoryList from 'HistoryList';
 
 //component for rendering search results
-const History = React.createClass({
+const Favorites = React.createClass({
 
+  renderHistoryList(searchHistory){
+    return (
+      searchHistory.map((history)=>{
+        const key = uuid();
+        console.log(history);
+        return(
+            <HistoryList key={key}  history={history}/>
+        );
+      })
+    );
+  },
 
   render () {
-
+    const {searchHistory} = this.props;
     return(
       <div className = 'search_results'>
-        hey
+      <h3 className = 'title'>History</h3>
+       {this.renderHistoryList(searchHistory)}
       </div>
     );
   }
 });
 
-export default connect()(History);
+export default connect()(Favorites);

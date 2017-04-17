@@ -4,15 +4,16 @@ const React = require('react'),
   actions = require('actions');
 
 import CategoryButton from 'CategoryButton';
+import ViewButton from 'ViewButton';
 
 const SearchForm = React.createClass({
   searchMovie(){
     const
       omdbUrl ='http://omdbapi.com/?s=',
       {dispatch, searchCategory} = this.props,
-      query = this.refs.searchQuery.value + '&type=';
+      query = this.refs.searchQuery.value;
 
-    const requestUrl = omdbUrl + query + searchCategory;
+    const requestUrl = omdbUrl + query + '&type=' + searchCategory;
     $.ajax({
       type: 'GET',
       url: requestUrl,
@@ -68,6 +69,7 @@ const SearchForm = React.createClass({
     const {searchCategory} = this.props;
     return(
       <div>
+       <ViewButton view = '/user'/>
         <form className='search_form' onSubmit={this.searchMovie}>
             <input className='search_input'
             type='text' ref='searchQuery' />

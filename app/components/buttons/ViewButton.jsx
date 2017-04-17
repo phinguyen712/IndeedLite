@@ -1,10 +1,9 @@
 const React = require('react'),
-  {connect} = require('react-redux'),
   {Link} = require('react-router');
 
 const ViewButton= React.createClass({
   returnIcon(view){
-    if(view === 'user'){
+    if(view === '/user'){
       return 'fa fa-book';
     }else{
       return 'fa fa-search';
@@ -12,14 +11,14 @@ const ViewButton= React.createClass({
   },
 
   render () {
-    const {favorites, view} = this.props;
+    const {view} = this.props;
 
     return(
       <Link to = {view}>
-        <i className = {this.returnIcon(view)}></i>
+        <i className = {'view_icon ' + this.returnIcon(view)}></i>
       </Link>
     );
   }
 });
 
-export default connect()(ViewButton);
+export default ViewButton;

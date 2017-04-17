@@ -38,7 +38,8 @@ module.exports = {
       ViewButton:'app/components/buttons/ViewButton.jsx',
       User:'app/components/views/user/User.jsx',
       Favorites:'app/components/views/user/Favorites.jsx',
-      History:'app/components/views/user/History.jsx'
+      History:'app/components/views/user/History.jsx',
+      HistoryList:'app/components/lists/HistoryList.jsx'
     },
     extensions: ['', '.js', '.jsx']
   },
