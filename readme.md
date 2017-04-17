@@ -10,13 +10,13 @@ When building the project for the very first time, run the following command.
 npm install
 ```
 
-```bash
-webpack -w
-```
 This will install all of your node modules.
 
 ## Running
 To run the project, simply run the following command
+```bash
+webpack -w
+```
 ```bash
 npm start
 ```
