@@ -1,0 +1,23 @@
+.one_fourth{
+  height:100%;
+  float:left;
+  width:25%;
+}
+.two_fourth{
+  height:100%;
+  float:left;
+  width:50%;
+}
+
+
+.medium_max_one_whole{
+  @include grid_max($tablet,100%);
+}
+
+.medium_min_one_fourths{
+  @include grid_min($tablet,25%);
+}
+
+.medium_min_one_fourths{
+  @include grid_min($tablet,25%);
+}

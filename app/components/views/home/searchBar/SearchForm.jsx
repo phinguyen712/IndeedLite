@@ -65,21 +65,23 @@ const SearchForm = React.createClass({
 
 
   render () {
+    const {searchCategory} = this.props;
     return(
       <div>
-        <form className="Navbar-form" onSubmit={this.searchMovie}>
-        <div id="search">
-            <input type="text" ref="searchQuery" className="searchBox" />
-        </div>
-            <button type="submit" id="testbutton"
-              className=" glyphicon glyphicon-search btn btn-default">
+        <form className='search_form' onSubmit={this.searchMovie}>
+            <input className='search_input'
+            type='text' ref='searchQuery' />
+            <button type='submit'
+              className='medium_max_one_whole'>
+              Search {searchCategory}
             </button>
 
         </form>
         <div>
-          <CategoryButton category = 'movie'/>
-          <CategoryButton category = 'series'/>
-          <CategoryButton category = 'episode'/>
+          <CategoryButton activeCategory = {searchCategory}
+           category = 'movie'/>
+          <CategoryButton activeCategory = {searchCategory}
+          category = 'series'/>
         </div>
       </div>
     );

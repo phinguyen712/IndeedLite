@@ -7,10 +7,14 @@ const CategoryButton = React.createClass({
     const {dispatch} = this.props;
     dispatch(actions.changeCategory(category));
   },
+
   render () {
-    const {category} = this.props;
+    const {activeCategory,category} = this.props,
+      active = (activeCategory === category)? 'active':'';
     return(
-      <button onClick={()=>this.changeCategory(category)}>
+      <button className = {active}
+      onClick={()=>this.changeCategory(category)}
+      >
         {category}
       </button>
     );

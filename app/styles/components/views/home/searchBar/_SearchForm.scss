@@ -1,0 +1,24 @@
+.search_form{
+  margin-bottom:10px;
+  input{
+    width:100%;
+    height:50px;
+    margin-bottom:$sml-gap;
+    background-color:$gray-lighter;
+    font-size:$lrg-font;
+  }
+  button{
+    margin-bottom:$sml-gap;
+    width:$lrg-btn-width;
+    height:$lrg-btn-height;
+    margin:auto;
+    color:white;
+    background-color:$slate-green;
+    font-size:$lrg-font;
+  }
+}
+
+.active{
+  background-color:$slate-gray;
+  color:white;
+}

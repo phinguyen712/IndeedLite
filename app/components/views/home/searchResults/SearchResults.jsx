@@ -31,7 +31,7 @@ const SearchResults = React.createClass({
   render () {
     const {searchResults} = this.props;
     return(
-      <div>
+      <div className = 'search_results'>
       {this.renderResults(searchResults)}
       </div>
     );

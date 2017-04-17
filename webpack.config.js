@@ -34,7 +34,11 @@ module.exports = {
       LikeButton:'app/components/lists/movieList/LikeButton.jsx',
       MovieDetails:'app/components/lists/movieList/MovieDetails.jsx',
       Movie:'app/components/views/movie/Movie.jsx',
-      CategoryButton:'app/components/buttons/CategoryButton.jsx'
+      CategoryButton:'app/components/buttons/CategoryButton.jsx',
+      ViewButton:'app/components/buttons/ViewButton.jsx',
+      User:'app/components/views/user/User.jsx',
+      Favorites:'app/components/views/user/Favorites.jsx',
+      History:'app/components/views/user/History.jsx'
     },
     extensions: ['', '.js', '.jsx']
   },

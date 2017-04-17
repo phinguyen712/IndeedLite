@@ -23,7 +23,13 @@
     @content;
     width:$width;
   }
-  float:left;
+}
+
+@mixin grid_max($device, $width) {
+  @media only screen and (max-width: $device){
+    @content;
+    width:$width;
+  }
 }
 
 

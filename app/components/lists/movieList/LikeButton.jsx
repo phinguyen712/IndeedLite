@@ -9,9 +9,9 @@ const LikeButton = React.createClass({
   //I/O for liked button
   buttonColor(movie, hasLiked){
     if ( hasLiked !== -1 ){
-      return 'liked-Button';
+      return 'fa fa-heart';
     }
-    return 'unliked-Button';
+    return 'fa fa-heart-o';
   },
 
 
@@ -40,7 +40,6 @@ const LikeButton = React.createClass({
       <button className={this.buttonColor(movie,hasLiked)}
         onClick={()=>this.toggleLike(movie,hasLiked)}
       >
-        Like
       </button>
 
     );
