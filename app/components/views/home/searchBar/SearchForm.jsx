@@ -11,18 +11,13 @@ const SearchForm = React.createClass({
   //searh OMDB for lists of movies or series
   searchMovie(){
     const
-      omdbUrl ='http://omdbapi.com/?s=',
       {dispatch, searchCategory} = this.props,
       query = this.refs.searchQuery.value;
 
-    const requestUrl = omdbUrl + query + '&type=' + searchCategory;
-
-    //display the waiting gif
-    $('.waiting_gif').css('display','block');
 
     $.ajax({
       type: 'GET',
-      url: requestUrl,
+      url: '/yes',
       dataType:'json',
       success:(re)=>{
         if(re.Response ==='False'){
@@ -38,44 +33,6 @@ const SearchForm = React.createClass({
     });
   },
 
-
-  //API request to Omdb for each movie in the list returned
-  //This is to obtain a more detailed list
-  populateWithDetailSearch(movies){
-    const omdbUrl ='http://omdbapi.com/?i=',
-      {dispatch} = this.props,
-      limit = movies.length;
-
-    let asyncCounter = 0;
-    const detailedMovies = [];
-
-    movies.forEach((movie,index)=>{
-      const requestUrl = omdbUrl + movie.imdbID;
-      $.ajax({
-        type: 'GET',
-        url: requestUrl,
-        dataType:'json',
-        success:(i)=>{
-          asyncCounter++;
-          //remove waiting gf
-          $('.waiting_gif').css('display','none');
-          //Uses a couter to
-          //wait for all async request to finish, then initiate action/reducer
-          if(asyncCounter === limit - 1){
-            detailedMovies[index] = i;
-            return dispatch(actions.searchResults({
-              Response:'True',
-              Search:detailedMovies
-            }));
-          }
-          asyncCounter++;
-          detailedMovies[index] = i;
-        }
-      });
-    });
-  },
-
-
   render () {
     const {searchCategory} = this.props;
     return(
@@ -88,13 +45,6 @@ const SearchForm = React.createClass({
               Search {searchCategory}
             </button>
         </form>
-        <div>
-          <CategoryButton activeCategory = {searchCategory}
-           category = 'movie'/>
-          <CategoryButton activeCategory = {searchCategory}
-          category = 'series'/>
-        </div>
-        <ViewButton view = '/user'/>
       </div>
     );
   }
