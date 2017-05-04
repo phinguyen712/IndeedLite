@@ -3,21 +3,19 @@ const React = require('react'),
   timestamp = require('time-stamp'),
   actions = require('actions');
 
-import CategoryButton from 'CategoryButton';
-import ViewButton from 'ViewButton';
+import SearchParams from 'SearchParamas';
 
 const SearchForm = React.createClass({
 
   //searh OMDB for lists of movies or series
   searchMovie(){
     const
-      {dispatch, searchCategory} = this.props,
+      {dispatch} = this.props,
       query = this.refs.searchQuery.value;
 
-
     $.ajax({
-      type: 'GET',
-      url: '/yes',
+      type: 'POST',
+      url: '/search',
       dataType:'json',
       success:(re)=>{
         if(re.Response ==='False'){
@@ -33,13 +31,17 @@ const SearchForm = React.createClass({
     });
   },
 
+
   render () {
     const {searchCategory} = this.props;
     return(
       <div>
         <form className='search_form' onSubmit={this.searchMovie}>
             <input className='search_input'
-            type='text' ref='searchQuery' />
+              type='text'  placeholder="Search" ref='searchQuery' />
+            <input className='search_input'
+              type='text' placeholder="Location" ref='searchQuery'/>
+            <SearchParams/>
             <button type='submit'
               className='medium_max_one_whole'>
               Search {searchCategory}

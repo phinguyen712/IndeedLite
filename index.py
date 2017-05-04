@@ -1,11 +1,11 @@
-from flask import Flask
+from flask import Flask, render_template
 from flask_restful import Resource, Api
-from resources.search import Search
-from resources.user import UserRegister
+from server.resources.search import Search
+from server.resources.user import UserRegister
 from flask_jwt import JWT
-from security import authenticate, identity
+from server.security import authenticate, identity
 
-app = Flask(__name__)
+app = Flask(__name__,static_folder="./static", template_folder="./templates")
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.secret_key = 'phidb'
@@ -18,11 +18,16 @@ def create_tables():
 
 jwt = JWT(app, authenticate, identity)  # /auth
 
+
+@app.route('/')
+def root():
+    return render_template('index.html')
+
 api.add_resource(UserRegister, '/register')
-api.add_resource(Search, '/search/')
+api.add_resource(Search, '/search')
 
 
 if __name__ == '__main__':
-    from db import db
+    from server.db import db
     db.init_app(app)
     app.run(port=5000, debug=True)

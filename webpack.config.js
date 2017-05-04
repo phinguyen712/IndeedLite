@@ -17,7 +17,7 @@ module.exports = {
   ],
   output: {
     path: __dirname,
-    filename: 'server/static/bundle.js'
+    filename: 'static/bundle.js'
   },
   resolve: {
     root: __dirname,
@@ -39,7 +39,8 @@ module.exports = {
       User:'app/components/views/user/User.jsx',
       Favorites:'app/components/views/user/Favorites.jsx',
       History:'app/components/views/user/History.jsx',
-      HistoryList:'app/components/lists/HistoryList.jsx'
+      HistoryList:'app/components/lists/HistoryList.jsx',
+      SearchParams:'app/components/views/SearchBar/searchParams.jsx'
     },
     extensions: ['', '.js', '.jsx']
   },

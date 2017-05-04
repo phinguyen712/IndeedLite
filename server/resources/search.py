@@ -26,7 +26,16 @@ class Search(Resource):
             queries = queries + '&' + params + '=' + data[params]
 
         url = indeed + queries + '&limit=600'
-        data = urllib.request.urlopen(url).read()
-        print(url)
-        data = json.loads(data)
-        return data
+        # search up more than 25 jobs at a time(indeed's limit) this will give us a massive list to filter
+        x = 1
+        job_list = {'found': 0, 'results': []}
+
+        while x < 10:
+            page = str(x*25)
+            data = urllib.request.urlopen(url + '&=' + page).read()
+            data = json.loads(data)
+            job_list['results'].extend(data['results'])
+            x += 1
+            print (x)
+        job_list['found'] = len(job_list['results'])
+        return job_list
