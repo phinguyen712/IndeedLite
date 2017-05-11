@@ -29,18 +29,12 @@ module.exports = {
       Main: 'app/components/views/Main.jsx',
       Home: 'app/components/views/home/Home.jsx',
       SearchForm:'app/components/views/home/searchBar/SearchForm.jsx',
-      SearchResults:'app/components/views/home/searchResults/SearchResults.jsx',
-      MovieList:'app/components/lists/movieList/MovieList.jsx',
-      LikeButton:'app/components/lists/movieList/LikeButton.jsx',
-      MovieDetails:'app/components/lists/movieList/MovieDetails.jsx',
-      Movie:'app/components/views/movie/Movie.jsx',
-      CategoryButton:'app/components/buttons/CategoryButton.jsx',
-      ViewButton:'app/components/buttons/ViewButton.jsx',
-      User:'app/components/views/user/User.jsx',
+      SearchResults:'app/components/views/home/searchResults/index.jsx',
+      LikeJobButton:'app/components/lists/jobList/LikeButton.jsx',
+      JobList:'app/components/lists/jobList/index.jsx',
       Favorites:'app/components/views/user/Favorites.jsx',
-      History:'app/components/views/user/History.jsx',
-      HistoryList:'app/components/lists/HistoryList.jsx',
-      SearchParams:'app/components/views/SearchBar/searchParams.jsx'
+      SearchParams:'app/components/views/home/SearchBar/searchParams.jsx',
+      DropDown:'app/components/forms/DropDown.jsx'
     },
     extensions: ['', '.js', '.jsx']
   },

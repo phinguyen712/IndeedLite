@@ -3,10 +3,7 @@ const React = require('react'),
   timestamp = require('time-stamp'),
   actions = require('actions');
 
-import SearchParams from 'SearchParamas';
-
-const SearchForm = React.createClass({
-
+export class SearchForm extends React.Component{
   //searh OMDB for lists of movies or series
   searchMovie(){
     const
@@ -29,28 +26,26 @@ const SearchForm = React.createClass({
         }));
       }
     });
-  },
-
+  }
 
   render () {
-    const {searchCategory} = this.props;
+
     return(
       <div>
         <form className='search_form' onSubmit={this.searchMovie}>
             <input className='search_input'
-              type='text'  placeholder="Search" ref='searchQuery' />
+              type='text'  placeholder="Search" ref='q' />
             <input className='search_input'
-              type='text' placeholder="Location" ref='searchQuery'/>
-            <SearchParams/>
+              type='text' placeholder="Location" ref='location'/>
             <button type='submit'
               className='medium_max_one_whole'>
-              Search {searchCategory}
+              Search
             </button>
         </form>
       </div>
     );
   }
-});
+}
 
 
 export default connect(

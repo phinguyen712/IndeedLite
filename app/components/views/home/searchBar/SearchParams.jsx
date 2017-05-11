@@ -1,16 +1,13 @@
 const React = require('react'),
-  {connect} = require('react-redux'),
-  timestamp = require('time-stamp'),
-  actions = require('actions');
+  {connect} = require('react-redux');
 
-const SearchForm = React.createClass({
+export class SearchParams extends React.Component{
 
   showSearchInputs () {
 
-  },
+  }
 
   render () {
-    const {searchCategory} = this.props;
     return(
       <ul>
         {this.showSearchInputs()}
@@ -18,7 +15,7 @@ const SearchForm = React.createClass({
       </ul>
     );
   }
-});
+}
 
 
 export default connect(
@@ -27,4 +24,4 @@ export default connect(
       searchCategory:state.searchCategory,
     };
   }
-)(SearchForm);
+)(SearchParams);

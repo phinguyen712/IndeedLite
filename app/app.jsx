@@ -6,7 +6,7 @@ const React = require('react'),
 
 import Main from 'Main';
 import Home from 'Home';
-import User from 'User';
+
 
 
 // App css
@@ -18,7 +18,6 @@ ReactDOM.render(
     <Router history={hashHistory}>
       <Route path = '/' component={Main}>
         <IndexRoute  component={Home}/>
-        <Route path = 'user' component={User} />
       </Route>
     </Router>
   </Provider>

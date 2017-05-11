@@ -1,16 +1,8 @@
-onst React = require('react'),
-  {connect} = require('react-redux'),
-  actions = require('actions');
+const React = require('react'),
+  {connect} = require('react-redux');
 
 //button for toggling extra params options
-const CategoryButton = React.createClass({
-
-
-  toggle(){
-
-  },
-
-
+export class CategoryButton extends React.Component{
   render () {
     const {activeCategory,category} = this.props,
       active = (activeCategory === category)? 'active':'';
@@ -22,6 +14,6 @@ const CategoryButton = React.createClass({
       </button>
     );
   }
-});
+}
 
 export default connect()(CategoryButton);

@@ -1,17 +1,14 @@
 const 	React = require('react'),
   {connect} = require('react-redux');
 
-import ViewButton from 'ViewButton';
-
-
-const Main = React.createClass({
-  render:function(){
+export class Main extends React.Component{
+  render(){
     return (
       <div id= 'main_container'>
         {this.props.children}
       </div>
     );
   }
-});
+}
 
 export default connect()(Main);

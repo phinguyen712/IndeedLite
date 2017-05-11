@@ -5,7 +5,7 @@ import SearchForm from 'SearchForm';
 import SearchResults from 'SearchResults';
 
 //component for rendering home page
-const Home = React.createClass({
+export class Home extends React.Component{
   render () {
     return (
         <div className = 'view_container'>
@@ -14,6 +14,6 @@ const Home = React.createClass({
         </div>
     );
   }
-});
+}
 
 export default connect()(Home);
