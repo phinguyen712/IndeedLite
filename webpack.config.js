@@ -30,11 +30,12 @@ module.exports = {
       Home: 'app/components/views/home/Home.jsx',
       SearchForm:'app/components/views/home/searchBar/SearchForm.jsx',
       SearchResults:'app/components/views/home/searchResults/index.jsx',
-      LikeJobButton:'app/components/lists/jobList/LikeButton.jsx',
+      LikeJobButton:'app/components/lists/jobList/LikeJobButton.jsx',
       JobList:'app/components/lists/jobList/index.jsx',
       Favorites:'app/components/views/user/Favorites.jsx',
-      SearchParams:'app/components/views/home/SearchBar/searchParams.jsx',
-      DropDown:'app/components/forms/DropDown.jsx'
+      SearchParams:'app/components/views/home/SearchBar/SearchParams/index.jsx',
+      SearchParamsToggle:'app/components/views/home/SearchBar/SearchParams/SearchParamsToggle.jsx',
+      DropDown:'app/components/forms/DropDown.jsx',
     },
     extensions: ['', '.js', '.jsx']
   },

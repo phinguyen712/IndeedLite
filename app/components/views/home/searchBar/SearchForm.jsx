@@ -3,6 +3,9 @@ const React = require('react'),
   timestamp = require('time-stamp'),
   actions = require('actions');
 
+import SearchParams from 'SearchParams';
+import SearchParamsToggle from 'SearchParamsToggle';
+
 export class SearchForm extends React.Component{
   //searh OMDB for lists of movies or series
   searchMovie(){
@@ -42,6 +45,8 @@ export class SearchForm extends React.Component{
               Search
             </button>
         </form>
+        <SearchParamsToggle/>
+        <SearchParams/>
       </div>
     );
   }
