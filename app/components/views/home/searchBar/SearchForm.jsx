@@ -15,10 +15,24 @@ export class SearchForm extends React.Component{
     //debounce only runs handleInputChange method after certain delays
     this.callAjax = debounce(300,this.callAjax);
     this.handleInputChange = this.handleInputChange.bind(this);
+    this.searchJobs = this.searchJobs.bind(this);
   }
 
   searchJobs(event){
     event.preventDefault();
+    const{searchParams} = this.props;
+
+
+    $.ajax({
+      type: 'POST',
+      url: 'search',
+      contentType:'application/json',
+      dataType:'json',
+      data:JSON.stringify(searchParams),
+      success:(re)=>{
+        console.log(re);
+      }
+    });
   }
 
   handleInputChange(event){
@@ -26,7 +40,6 @@ export class SearchForm extends React.Component{
       value = event.target.value,
       key = event.target.name;
 
-      console.log("hey")
     //call an async method because we are using debounce to delay user's input
     this.callAjax({key:key,value:value});
   }
@@ -38,9 +51,10 @@ export class SearchForm extends React.Component{
   }
 
   render () {
+
     return(
       <div>
-        <form className='search_form' onSubmit={this.searchJobs.bind(this)}>
+        <form className='search_form' onSubmit={this.searchJobs}>
             <input
               className='search_input'
               type='text'
@@ -50,7 +64,7 @@ export class SearchForm extends React.Component{
             <input
               className='search_input'
               type='text'
-              name='location'
+              name='l'
               placeholder="Location"
               onChange={this.handleInputChange}/>
             <button type='submit'
@@ -69,7 +83,7 @@ export class SearchForm extends React.Component{
 export default connect(
   (state)=>{
     return{
-      updateSearchParams:state.updateSearchParams
+      searchParams:state.searchParams
     };
   }
 )(SearchForm);
