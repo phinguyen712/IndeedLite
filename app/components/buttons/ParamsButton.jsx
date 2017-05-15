@@ -6,6 +6,7 @@ export class CategoryButton extends React.Component{
   render () {
     const {activeCategory,category} = this.props,
       active = (activeCategory === category)? 'active':'';
+
     return(
       <button className = {active}
         onClick={()=>this.toggleView(category)}

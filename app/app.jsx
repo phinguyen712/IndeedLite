@@ -1,4 +1,5 @@
-const React = require('react'),
+const
+  React = require('react'),
   ReactDOM = require('react-dom'),
   {Route, Router, IndexRoute, hashHistory} = require('react-router'),
   {Provider} = require('react-redux'),

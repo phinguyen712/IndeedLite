@@ -1,16 +1,14 @@
 
 import * as redux from 'redux';
-import {searchResultsReducer,
-        likedMoviesReducer,
-        searchHistoryReducer,
-        searchCategoryReducer} from 'reducers';
+import {searchParamsReducer,
+        searchResultsReducer,
+        likedJobsReducer} from 'reducers';
 
 export const configure = (initialState = {}) => {
   const reducer = redux.combineReducers({
+    searchParams: searchParamsReducer,
     searchResults: searchResultsReducer,
-    likedMovies: likedMoviesReducer,
-    searchHistory: searchHistoryReducer,
-    searchCategory: searchCategoryReducer
+    likedJobsReducer: likedJobsReducer
   });
 
   const store = redux.createStore(reducer, initialState, redux.compose(

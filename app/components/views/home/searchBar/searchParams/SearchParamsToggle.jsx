@@ -1,12 +1,10 @@
-const React = require('react'),
-  {connect} = require('react-redux'),
-  timestamp = require('time-stamp'),
-  actions = require('actions');
+const
+  React = require('react'),
+  {connect} = require('react-redux');
 
-export class SpToggle extends React.Component{
+export class SearchParamsToggle extends React.Component{
   //searh OMDB for lists of movies or series
   render () {
-
     return(
       <div>
         <button>
@@ -17,5 +15,4 @@ export class SpToggle extends React.Component{
   }
 }
 
-
-export default connect(SpToggle);
+export default connect()(SearchParamsToggle);

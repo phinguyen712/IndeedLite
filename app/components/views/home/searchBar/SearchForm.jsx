@@ -1,52 +1,65 @@
-const React = require('react'),
+const
+  React = require('react'),
   {connect} = require('react-redux'),
   timestamp = require('time-stamp'),
+  debounce = require('throttle-debounce/debounce'),
   actions = require('actions');
 
 import SearchParams from 'SearchParams';
 import SearchParamsToggle from 'SearchParamsToggle';
 
 export class SearchForm extends React.Component{
-  //searh OMDB for lists of movies or series
-  searchMovie(){
-    const
-      {dispatch} = this.props,
-      query = this.refs.searchQuery.value;
 
-    $.ajax({
-      type: 'POST',
-      url: '/search',
-      dataType:'json',
-      success:(re)=>{
-        if(re.Response ==='False'){
-          return dispatch(actions.searchResults(re));
-        }
-        this.populateWithDetailSearch(re.Search);
-        //add query to search history
-        dispatch(actions.addSearchHistory({
-          query:query,
-          time:timestamp('YYYY/MM/DD')
-        }));
-      }
-    });
+  constructor(props) {
+    super(props);
+    //debounce only runs handleInputChange method after certain delays
+    this.callAjax = debounce(300,this.callAjax);
+    this.handleInputChange = this.handleInputChange.bind(this);
+  }
+
+  searchJobs(event){
+    event.preventDefault();
+  }
+
+  handleInputChange(event){
+    const
+      value = event.target.value,
+      key = event.target.name;
+
+      console.log("hey")
+    //call an async method because we are using debounce to delay user's input
+    this.callAjax({key:key,value:value});
+  }
+
+  callAjax(eventKeyValue){
+    const {dispatch} = this.props;
+
+    dispatch(actions.updateSearchParams(eventKeyValue));
   }
 
   render () {
-
     return(
       <div>
-        <form className='search_form' onSubmit={this.searchMovie}>
-            <input className='search_input'
-              type='text'  placeholder="Search" ref='q' />
-            <input className='search_input'
-              type='text' placeholder="Location" ref='location'/>
+        <form className='search_form' onSubmit={this.searchJobs.bind(this)}>
+            <input
+              className='search_input'
+              type='text'
+              name='q'
+              placeholder="Search"
+              onChange={this.handleInputChange} />
+            <input
+              className='search_input'
+              type='text'
+              name='location'
+              placeholder="Location"
+              onChange={this.handleInputChange}/>
             <button type='submit'
               className='medium_max_one_whole'>
-              Search
+              Search Job
             </button>
         </form>
         <SearchParamsToggle/>
-        <SearchParams/>
+        <SearchParams handleInputChange = {this.handleInputChange}/>
       </div>
     );
   }
@@ -56,7 +69,7 @@ export class SearchForm extends React.Component{
 export default connect(
   (state)=>{
     return{
-      searchCategory:state.searchCategory,
+      updateSearchParams:state.updateSearchParams
     };
   }
 )(SearchForm);

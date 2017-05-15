@@ -1,27 +1,31 @@
-const React = require('react'),
+const
+  React = require('react'),
   {connect} = require('react-redux');
 
+import DropDown from 'DropDown';
+
 export class SearchParams extends React.Component{
-
-  showSearchInputs () {
-
+  constructor(props) {
+    super(props);
   }
 
-  render () {
+  render(){
+    const sort = ['relevance','date'],
+      jt = ['fulltime', 'parttime', 'contract', 'internship', 'temporary'];
+
     return(
-      <ul>
-        {this.showSearchInputs()}
-          <input className='search_input' type='text'  placeholder="Search" ref='searchQuery' />
-      </ul>
+      <div>
+        <DropDown handleInputChange={this.props.handleInputChange} name='sort' options={sort}/>
+        <DropDown handleInputChange={this.props.handleInputChange} name='jt' options={jt}/>
+      </div>
     );
   }
 }
 
-
 export default connect(
   (state)=>{
     return{
-      searchCategory:state.searchCategory,
+
     };
   }
 )(SearchParams);
