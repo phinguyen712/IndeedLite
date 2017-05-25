@@ -1,48 +1,42 @@
 @mixin clearfix {
-    &:after {
-        content: "";
-        display: block;
-        clear: both;
-    }
+  &:after {
+    content: "";
+    display: block;
+    clear: both;
+  }
 }
-
-@mixin device_size_min($device){
-  @media only screen and (min-width: $device){
+@mixin device_size_min($device) {
+   @media only screen and (min-width: $device){
     @content;
   }
 }
-
-@mixin device_size_max($device){
-  @media only screen and (max-width: $device){
+@mixin device_size_max($device) {
+   @media only screen and (max-width: $device){
     @content;
   }
 }
-
 @mixin grid_min($device, $width) {
-  @media only screen and (min-width: $device){
+   @media only screen and (min-width: $device){
     @content;
-    width:$width;
+    float:left;
+    width: $width;
   }
 }
-
 @mixin grid_max($device, $width) {
-  @media only screen and (max-width: $device){
+   @media only screen and (max-width: $device){
     @content;
-    width:$width;
+    float:left;
+    width: $width;
   }
 }
-
-
 @mixin vertical_align_center {
-    position: relative;
-    top: 50%;
-    -webkit-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
 }
-
-
 @mixin fit_to_container {
-    height:100%;
-    width:100%;
+  height: 100%;
+  width: 100%;
 }

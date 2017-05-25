@@ -35,7 +35,8 @@ module.exports = {
       Favorites:'app/components/views/user/Favorites.jsx',
       SearchParams:'app/components/views/home/SearchBar/SearchParams/index.jsx',
       SearchParamsToggle:'app/components/views/home/SearchBar/SearchParams/SearchParamsToggle.jsx',
-      DropDown:'app/components/forms/DropDown/index.jsx',
+      DropDown:'app/components/forms/DropDown.jsx',
+      CheckBoxes:'app/components/forms/CheckBoxes.jsx',
     },
     extensions: ['', '.js', '.jsx']
   },

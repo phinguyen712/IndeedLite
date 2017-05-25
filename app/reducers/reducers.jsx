@@ -21,6 +21,15 @@ export const searchResultsReducer = (state = false, action) => {
   }
 };
 
+export const currentPageReducer = (state = 1, action) => {
+  switch (action.type) {
+    case 'CHANGE_PAGE_NUMBER':
+      return action.pageNumber;
+    default:
+      return state;
+  }
+};
+
 export const likedJobsReducer = (state = [], action) => {
   switch (action.type) {
     case 'ADD_LIKE_MOVIE':

@@ -5,10 +5,23 @@ const React = require('react');
 export class JobList extends React.Component{
 
   render(){
+    const {job} = this.props;
+    // Title Company  Location Sponsored
     return(
-        <div id = 'movie_list' className = 'clear'>
-          JobList
-        </div>
+      <tr>
+        <td >
+          {job.jobtitle}
+        </td>
+        <td >
+          {job.company}
+        </td>
+        <td >
+          {job.formattedLocation}
+        </td>
+        <td >
+          {job.sonsored}
+        </td>
+      </tr>
     );
   }
 }

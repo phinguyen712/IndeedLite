@@ -1,11 +1,8 @@
 // Utils
 @import "utils/mixins";
 @import "utils/variables";
-
 //global --- grid system, clearfixes, height etc...
 @import "globals/grid";
-
-
 // Components
 @import "components/lists/movielists/MovieList";
 @import "Main";
@@ -13,48 +10,33 @@
 @import "components/views/home/searchBar/SearchForm";
 @import "components/views/home/searchResults/SearchResults";
 @import "components/buttons/ViewButton";
-
-
 //Gloabl styles
 /////////////////////////////////////////////
+
 body {
-    margin: 0;
-    background-color: white;
-    font-family:$main-font;
-    font-weight:$light-weight;
+  margin: 0;
+  background-color: white;
+  font-family: $main-font;
+  font-weight: $light-weight;
 }
 
-input, button {
-  border-radius:0px;
-  border-width:0px;
-  box-shadow:$box-shadow;
+button,
+input {
+  border-radius: 0;
+  border-width: 0;
+  box-shadow: $box-shadow;
 }
 
 a {
-  color:$link-color;
-  text-decoration: none; /* no underline */
+  color: $link-color;
+  text-decoration: none;
+  /* no underline */
 }
 
-/* Grid system */
-.one_fourth{
-  float:left;
-  width:25%;
-}
-
-.medium_min_one_third{
-  @include grid_min($tablet,33%);
-}
-
-.inner_grid{
-  max-width:940px;
-  margin:auto;
-}
-
-.clear{
+.clear {
   @include clearfix;
 }
-
 /* text alignment */
-.text_center{
-  text-align:center;
+.text_center {
+  text-align: center;
 }

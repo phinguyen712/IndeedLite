@@ -7,9 +7,16 @@ export const updateSearchParams = (searchParams) => {
   };
 };
 
-export const searchResults = (searchResults) => {
+export const updateSearchResults = (searchResults) => {
   return {
     type: 'UPDATE_SEARCH_RESULTS',
     searchResults
+  };
+};
+
+export const changePageNumber = (pageNumber) => {
+  return {
+    type: 'CHANGE_PAGE_NUMBER',
+    pageNumber
   };
 };

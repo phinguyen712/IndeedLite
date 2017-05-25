@@ -1,23 +1,32 @@
-.one_fourth{
-  height:100%;
-  float:left;
-  width:25%;
-}
-.two_fourth{
-  height:100%;
-  float:left;
-  width:50%;
+.inner_grid {
+  max-width: 940px;
+  margin: auto;
 }
 
+.one_fourth {
+  height: 100%;
+  float: left;
+  width: 25%;
+}
 
-.medium_max_one_whole{
+.two_fourth {
+  height: 100%;
+  float: left;
+  width: 50%;
+}
+
+.medium_max_one_whole {
   @include grid_max($tablet,100%);
 }
 
-.medium_min_one_fourths{
+.medium_min_one_half {
+  @include grid_min($tablet,50%);
+}
+
+.medium_min_one_fourths {
   @include grid_min($tablet,25%);
 }
 
-.medium_min_one_fourths{
+.medium_min_one_fourths {
   @include grid_min($tablet,25%);
 }

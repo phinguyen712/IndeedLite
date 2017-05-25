@@ -22,10 +22,4 @@ export class SearchParams extends React.Component{
   }
 }
 
-export default connect(
-  (state)=>{
-    return{
-
-    };
-  }
-)(SearchParams);
+export default connect()(SearchParams);

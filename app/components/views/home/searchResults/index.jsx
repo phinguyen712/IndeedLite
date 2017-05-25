@@ -7,22 +7,32 @@ import JobList from 'JobList';
 //component for rendering search results
 export class SearchResults extends React.Component{
 
-  //render base on search sucess or fail
+  //render  results  base on search sucess/error
   renderResults(searchResults){
-    if(searchResults.Response === 'True'){
-      return this.renderMovieLists(searchResults.Search);
-    }else{
-      return <h1>{searchResults.Error}</h1>;
+    if(searchResults){
+      if(searchResults.results){
+        return this.renderMovieLists(searchResults.results);
+      }
+      if(searchResults.err){
+        return (<div>{searchResults.err}</div>);
+      }
     }
   }
 
-  //renders sucess
-  renderMovieLists(searchResults){
+  //render lists based on current page
+  renderMovieLists(results){
+    const {currentPage} = this.props,
+      jobsPerPage = 25,
+      start = currentPage - 1,
+      end = start + jobsPerPage;
+
+    const jobsOnPage = results.slice(start, end);
+
     return (
-      searchResults.map((job)=>{
+      jobsOnPage.map((job)=>{
         const key = uuid();
         return(
-            <JobList key={key}  movie={job}/>
+            <JobList key={key}  job={job}/>
         );
       })
     );
@@ -35,7 +45,19 @@ export class SearchResults extends React.Component{
         <img className = 'waiting_gif'
           src = 'https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif'>
         </img>
-        {this.renderResults(searchResults)}
+
+        <table>
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Company</th>
+              <th>Location</th>
+            </tr>
+          </thead>
+          <tbody>
+            {this.renderResults(searchResults)}
+          </tbody>
+        </table>
       </div>
     );
   }
@@ -45,7 +67,8 @@ export class SearchResults extends React.Component{
 export default connect(
   (state)=>{
     return{
-      searchResults:state.searchResults,
+      searchResults: state.searchResults,
+      currentPage: state.currentPage
     };
   }
 )(SearchResults);

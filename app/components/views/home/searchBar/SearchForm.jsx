@@ -20,8 +20,7 @@ export class SearchForm extends React.Component{
 
   searchJobs(event){
     event.preventDefault();
-    const{searchParams} = this.props;
-
+    const{searchParams, dispatch} = this.props;
 
     $.ajax({
       type: 'POST',
@@ -29,8 +28,11 @@ export class SearchForm extends React.Component{
       contentType:'application/json',
       dataType:'json',
       data:JSON.stringify(searchParams),
-      success:(re)=>{
-        console.log(re);
+      success:(response)=>{
+        dispatch(actions.updateSearchResults(response));
+      },
+      error:(error)=>{
+        dispatch(actions.updateSearchResults({err:error.message}));
       }
     });
   }
@@ -55,22 +57,26 @@ export class SearchForm extends React.Component{
     return(
       <div>
         <form className='search_form' onSubmit={this.searchJobs}>
+          <div className='medium_min_one_half'>
             <input
               className='search_input'
               type='text'
               name='q'
-              placeholder="Search"
+              placeholder='Search'
               onChange={this.handleInputChange} />
+          </div>
+          <div className='medium_min_one_half'>
             <input
               className='search_input'
               type='text'
               name='l'
               placeholder="Location"
               onChange={this.handleInputChange}/>
-            <button type='submit'
-              className='medium_max_one_whole'>
-              Search Job
-            </button>
+          </div>
+          <button type='submit'
+            className='medium_max_one_whole'>
+            Search Job
+          </button>
         </form>
         <SearchParamsToggle/>
         <SearchParams handleInputChange = {this.handleInputChange}/>
